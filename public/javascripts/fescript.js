@@ -165,7 +165,7 @@ findMatch = () => {
     let url = "http://10.1.8.77:3001/api/v1/flat/filter_for_rent?";
 
     urlAfter = `locality_ids=${localityid.toString()}&apartment_ids=${apartmentid.toString()}&furnishing_type_ids=${furnishing_type_id.toString()}&min_price=${minValue}&max_price=${maxValue}&available_from=${available_from}`;
-    window.location = 'http://localhost:3000/property?'+urlAfter;
+    window.location = window.location.href +'property?'+urlAfter;
     
 
 
@@ -202,7 +202,7 @@ function showPopup(event){
 
   var card=document.getElementById("pop"+id);
 
-  card.classList.remove("one");
+  card.style.width = "100%";
 
 }
 
@@ -215,7 +215,8 @@ function showConfirmOffer(event){
   var card=document.getElementById("pop"+id);
 
   var element=card.getElementsByClassName("confirmOffer");
-
+  var elementToHide = card.getElementsByClassName("popup");
+  elementToHide[0].classList.add("one");
   element[0].classList.remove("one");
 
 }
@@ -246,7 +247,7 @@ function showAcceptmessage(event){
   "counter_bidder_id": uflatid,
   "bidding_type": "USER_AGENT",
   "status": "ACCEPTED",
-  "token_amount": 500
+//  "token_amount": 500
 });
 
 //console.log(data2);
@@ -278,7 +279,7 @@ xhr.send(data2);
   setTimeout(function(){
 
     elementToShow[0].classList.add("one");
-
+    card.style.width = "0%";
 
 
     /* direct to next property */
@@ -288,7 +289,7 @@ xhr.send(data2);
     utilNext(id, pageNo, len);
 
 
-   }, 5000);
+  }, 1000);
 
 }
 
@@ -303,6 +304,8 @@ function showEnterOffer(event){
   var card=document.getElementById("pop"+id);
 
   var element=card.getElementsByClassName("enterOffer");
+  var elementToHide = card.getElementsByClassName("popup");
+  elementToHide[0].classList.add("one");
 
   element[0].classList.remove("one");
 
@@ -328,16 +331,16 @@ function sendCounterOffer(event){
   var data2 = JSON.stringify({
   "profile_uuid": "83c01602-5a94-4d30-8e86-e59a795b4fe5",
   "flat_id": flatid,
-  "bidder_amount": parseInt(document.getElementById("priceinput").value),
-  "bidder_security_amount": parseInt(document.getElementById("sdepinput").value),
+  "bidder_amount": parseInt(card.querySelector("#priceinput").value),
+  "bidder_security_amount": parseInt(card.querySelector("#sdepinput").value),
   "counter_bidder_id": uflatid,
   "bidding_type": "USER_AGENT",
   "status": "BID",
-  "token_amount": 500
+//  "token_amount": 500
 });
 
 console.log(data2);
-alert('hi');
+//alert('hi');
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 
@@ -365,7 +368,7 @@ xhr.send(data2);
 
     elementToShow[0].classList.add("one");
 
-
+    card.style.width = "0%";
 
     /* direct to next property */
 
@@ -377,8 +380,14 @@ xhr.send(data2);
 
 
 
-   }, 5000);
+  }, 1000);
 
 }
 
+function showPref() {
+  window.location.href = "http://"+window.location.href.split('/')[2];
+}
 
+function showDashboard() {
+  window.location.href = "http://"+window.location.href.split('/')[2]+'/dashboard';
+}

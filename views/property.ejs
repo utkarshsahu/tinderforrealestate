@@ -5,10 +5,22 @@
    <head>
       <title><%= title %></title>
       <link rel='stylesheet' href='/stylesheets/style1.css' />
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    </head>
    <body>
       <div class="topbar">
+        <div class="offer-btn">
+         <div class="btn2" onclick="showPref()">
+
+           Edit Preferences
+
+         </div>
+         <div class="btn" onclick="showDashboard()">
+           My Offers
+         </div>     
+        </div>
+        <div class="bars">
          <div class="bar currentBar" id="bar1"></div>
          <div class="bar" id="bar2"></div>
          <div class="bar" id="bar3"></div>
@@ -19,6 +31,7 @@
          <div class="bar" id="bar8"></div>
          <div class="bar" id="bar9"></div>
          <div class="bar" id="bar10"></div>
+       </div>
       </div>
       <% for(var i = 0; i<data.length; i++) { %>
       <% if(i==0) {%>
@@ -32,7 +45,7 @@
          </div>
          <div class="detail1">
             <div class="propName"><%=data[i].title%></div>
-            <div class="moneyTalk">
+            <div class="moneyTalks">
                <div class="price">
                   <div class="rent">Rent</div>
                   <div class="rentValue"><%=data[i].price%></div>
@@ -43,74 +56,95 @@
                </div>
             </div>
          </div>
-         <div class="detail2">
-            <div class="detailname">Flat Amenities</div>
-            <div class="details_icon">
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-            </div>
+        <div class="detail2">
+           <div class="detailname">Flat Amenities</div>
+           <div class="details_icon">
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/AC.svg">
+                 </div>
+                 <div class="icon-name">
+                    AC
+                 </div>
+              </div>
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Geyser.svg">
+                 </div>
+                 <div class="icon-name">
+                    Geyser
+                 </div>
+              </div>
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Cupboard.svg">
+                 </div>
+                 <div class="icon-name">
+                    Cupboard
+                 </div>
+              </div>
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Bed.svg">
+                 </div>
+                 <div class="icon-name">
+                    Bed
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="detail3">
+           <div class="detailname">Society Amenities</div>
+           <div class="details_icon">
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Garden.svg">
+                 </div>
+                 <div class="icon-name">
+                    Garden
+                 </div>
+              </div>
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Gym.svg">
+                 </div>
+                 <div class="icon-name">
+                    Gym
+                 </div>
+              </div>
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Elevator.svg">
+                 </div>
+                 <div class="icon-name">
+                    Elevator
+                 </div>
+              </div>
+              <div class="icon">
+                 <div class="icon-image">
+                    <img src="/images/Export/Clubhouse.svg">
+                 </div>
+                 <div class="icon-name">
+                    Clubhouse
+                 </div>
+              </div>
+           </div>
+        </div>
+
+
+         
+      </div>
+      <div class="buttons">
+         <div class="accept" onclick="showPopup(event)" data-identifier="<%=i%>">
+            Make Offer
          </div>
-         <div class="detail3">
-            <div class="detailname">Society Amenities</div>
-            <div class="details_icon">
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-               <div class="icon">
-                  <div class="icon-image">
-                  </div>
-                  <div class="icon-name">
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="buttons">
-            <button class="accept" onclick="showPopup(event)" data-identifier="<%=i%>">
-               <div>Make Offer</div>
-            </button>
-            <button class="Next" onclick="showNextProperty(event)" data-blah=<%=i%> data-length=<%=data.length%> data-page=<%=pageNo%>>
-               <div>Next property</div>
-            </button>
+         <div class="Next" onclick="showNextProperty(event)" data-blah=<%=i%> data-length=<%=data.length%> data-page=<%=pageNo%>>
+            Next property
          </div>
       </div>
-      <div class="popupOverlay one" id="pop<%=i%>">
+      
+      </div>
+      <div class="popupOverlay" id="pop<%=i%>">
          <div class="popup">
             <div class="acceptOffer" onclick="showConfirmOffer(event)" data-identifier="<%=i%>">Accept Offer</div>
             <div class="counter" onclick="showEnterOffer(event)" data-identifier="<%=i%>">Counter Offer</div>
@@ -164,7 +198,6 @@
             <div class="textContent">You have successfully accepted offer!</div>
          </div>
         </div>
-      </div>
       <% } %>
    </body>
 </html>

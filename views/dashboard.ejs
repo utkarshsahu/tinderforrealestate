@@ -6,7 +6,8 @@
       
    </head>
    <body>
-      <div style="text-align: center">My Offers </div>
+    <div class="fullContainer">
+      <div class="myOffers" style="text-align: center">My Offers </div>
       <div class="listOfProperties" id="root" >
         <% for(var i = 0; i<data.length; i++) { %>
          <div class="card" id="card<%=i%>">
@@ -67,26 +68,84 @@
                      </div>
                   </div>
                </div>
+               
                <div class="buttonContainer" id="butgroup<%=i%>">
                   <div class="prop-options">
                      <button type="button" class="view-phone" id="make-offer-button-text<%=i%>" onclick="makeOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Make Offer</button>
+                
                   </div>
                   <div class="prop-options">
                      <button type="button" class="view-phone2"  onclick="abortOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Abort</button>
                   </div>
                </div>
-               <div class="offerButton one" id="off<%=i%>">
-                  <div class="acceptOffer" onclick="acceptOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Accept Offer
-                     
+               <div class="popupOverlay" id="off<%=i%>">
+                  <div class="popup">
+                     <div class="acceptOffer" onclick="showConfirmOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>> Accept Offer </div>
+                     <div class="counter" onclick="showEnterOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Counter Offer</div>
                   </div>
-                  <div class="counterOffer"  onclick="counterOffer(event)">Counter Offer
-                     
+                  <div class="one confirmOffer">
+                     <div class="confirmHead">Confirm Offer</div>
+                     <div class="moneyTalk">
+                        <div class="price">
+                           <div class="rent">Rent</div>
+                           <div class="rentValue">20000</div>
+                        </div>
+                        <div class="security">
+                           <div class="deposit">Securit Deposit</div>
+                           <div class="depositValue">100000</div>
+                        </div>
+                     </div>
+                     <div class="confirmYes_Btn">
+                        <div class="yesbtnText" onclick="showAcceptmessage(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Yes</div>
+                     </div>
+                  </div>
+                  <div class="enterOffer one">
+                     <div class="counterHead">Enter Counter Offer</div>
+                     <div class="offerArea">
+                        <div class="rentEdit">
+                           <div class="label">Rent</div>
+                           <div class="edit">
+                              <div class="rupee">Rs.</div>
+                              <div class="values">
+                                 <input type="text" placeholder="<10000>" size="10" id="price<%=i%>">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="securityEdit">
+                           <div class="label">Security Deposit</div>
+                           <div class="edit">
+                              <div class="rupee">Rs.</div>
+                              <div class="values">
+                                 <input type="text" placeholder="<10000>" size="10" id="sdep<%=i%>">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="counterYes_Btn">
+                        <div class="yesbtnText" onclick="sendCounterOffer(event)"data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Send Counter Offer</div>
+                     </div>
+                  </div>
+                  <div class="messageCounter one">
+                     <div class="textContent">You have successfully sent counter offer!</div>
+                  </div>
+                  <div class="messageAccept one">
+                     <div class="textContent">You have successfully accepted offer!</div>
                   </div>
                </div>
+               <!--
+               <div class="offerButton one" id="off<%=i%>">
+                  <button class="acceptOffer" onclick="acceptOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Accept Offer
+                     
+                  </button>
+                  <button class="counterOffer"  onclick="counterOffer(event)">Counter Offer
+                     
+                  </button>
+               </div>-->
             </div>
          </div>
          <% } %>
       </div>
+    </div>
    </body>
    <script src="/javascripts/dash_script.js" type="text/javascript"></script>
 </html>

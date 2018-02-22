@@ -25,6 +25,7 @@ app.get('/', routes.hello);
 app.get('/property/:id', routes.nextProp);
 app.get('/property', routes.loadProp);
 app.get('/dashboard', routes.loadDashboard);
+app.get('/ownerdashboard', routes.loadOwnerDashboard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

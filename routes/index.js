@@ -34,8 +34,8 @@ exports.loadProp = function(req, res) {
       url: apiServer,
       qs: 
       { locality_ids: req.query["locality_ids"],
-     apartment_type_ids: req.query["apartment_type_ids"],
-     furnishing_type_ids: req.query["furnishing_type_ids"],
+     apartment_type_ids: req.query["apartment_ids"],
+     furnish_type_ids: req.query["furnishing_type_ids"],
      min_price: req.query["min_price"],
      max_price: req.query["max_price"],
      available_from: req.query["available_from"] },
@@ -45,9 +45,9 @@ exports.loadProp = function(req, res) {
 
      request(options, function (error, response, body) {
       if (error) throw new Error(error);
-    //  console.log(body);
+      console.log(body);
       obj = JSON.parse(body);
-    res.render('property', {title:'hello', data: obj, url: serverUrl, pageNo: req.query["page"] || 1});
+    res.render('property', {title:'LeasyLife', data: obj, url: serverUrl, pageNo: req.query["page"] || 1});
   });
 
   
@@ -86,6 +86,35 @@ exports.loadDashboard = function(req, res) {
     });
 
     
+  });
+}
+
+exports.loadOwnerDashboard = function(req, res) {
+  var options = { method: 'GET',
+  url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
+  qs: 
+   { profile_uuid: '39355bc2-4fa5-48b8-90cb-047ea4bbcdf1',
+     profile_type: 'Seller' },
+  headers: 
+   { 
+     'cache-control': 'no-cache' } };
+
+  request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+  obj = JSON.parse(body);
+  var allKeys = Object.keys(obj).toString();
+  var options2 = { method: 'GET',
+    url: 'http://rakesh.kumar.housing.com:3000/api/user-flat-details',
+    qs: { user_flat_ids: allKeys },
+    headers: 
+    {
+      'cache-control': 'no-cache' } };
+
+  request(options2, function (error2, response2, body2) {
+  if (error2) throw new Error(error2);
+  //  console.log(body2);
+    res.render('dashboard', {data:obj, cbids: JSON.parse(body2)});
+  });
   });
 }
 exports.routes = router;
