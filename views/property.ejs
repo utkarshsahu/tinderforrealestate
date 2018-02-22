@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title><%= title %></title>
+      <link rel='stylesheet' href='/stylesheets/style1.css' />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="topbar">
+         <div class="bar currentBar" id="bar1"></div>
+         <div class="bar" id="bar2"></div>
+         <div class="bar" id="bar3"></div>
+         <div class="bar" id="bar4"></div>
+         <div class="bar" id="bar5"></div>
+         <div class="bar" id="bar6"></div>
+         <div class="bar" id="bar7"></div>
+         <div class="bar" id="bar8"></div>
+         <div class="bar" id="bar9"></div>
+         <div class="bar" id="bar10"></div>
+      </div>
+      <% for(var i = 0; i<data.length; i++) { %>
+      <% if(i==0) {%>
+      <div class="main" id=<%="elem"+i%>>
+      <% } else { %>
+      <div class="main one" id=<%="elem"+i%>>
+      <% } %>
+      <div class="property">
+         <div class="imgdiv">
+            <img src="<%=data[i].cover_image_url%>" style="width:100%">
+         </div>
+         <div class="detail1">
+            <div class="propName"><%=data[i].title%></div>
+            <div class="moneyTalk">
+               <div class="price">
+                  <div class="rent">Rent</div>
+                  <div class="rentValue"><%=data[i].price%></div>
+               </div>
+               <div class="security">
+                  <div class="deposit">Securit Deposit</div>
+                  <div class="depositValue"><%=data[i].security_deposit%></div>
+               </div>
+            </div>
+         </div>
+         <div class="detail2">
+            <div class="detailname">Flat Amenities</div>
+            <div class="details_icon">
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="detail3">
+            <div class="detailname">Society Amenities</div>
+            <div class="details_icon">
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+               <div class="icon">
+                  <div class="icon-image">
+                  </div>
+                  <div class="icon-name">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="buttons">
+            <button class="accept" onclick="showPopup(event)" data-identifier="<%=i%>">
+               <div>Make Offer</div>
+            </button>
+            <button class="Next" onclick="showNextProperty(event)" data-blah=<%=i%> data-length=<%=data.length%> data-page=<%=pageNo%>>
+               <div>Next property</div>
+            </button>
+         </div>
+      </div>
+      <div class="popupOverlay one" id="pop<%=i%>">
+         <div class="popup">
+            <div class="acceptOffer" onclick="showConfirmOffer(event)" data-identifier="<%=i%>">Accept Offer</div>
+            <div class="counter" onclick="showEnterOffer(event)" data-identifier="<%=i%>">Counter Offer</div>
+         </div>
+         <div class="confirmOffer one">
+            <div class="confirmHead">Confirm Offer</div>
+            <div class="moneyTalk">
+               <div class="price">
+                  <div class="rent">Rent</div>
+                  <div class="rentValue"><%=data[i].price%></div>
+               </div>
+               <div class="security">
+                  <div class="deposit">Securit Deposit</div>
+                  <div class="depositValue"><%=data[i].security_deposit%></div>
+               </div>
+            </div>
+            <div class="confirmYes_Btn">
+               <div class="yesbtnText" onclick="showAcceptmessage(event)" data-identifier="<%=i%>" data-blah="<%=i%>" data-length="<%=data.length%>" data-page="<%=pageNo%>" data-userflatid=<%=data[i].userflat_id%> data-id=<%=data[i].id%> data-price=<%=data[i].price%> data-sdep=<%=data[i].security_deposit%>>Yes</div>
+            </div>
+         </div>
+         <div class="enterOffer one">
+            <div class="counterHead">Enter Counter Offer</div>
+            <div class="offerArea">
+               <div class="rentEdit">
+                  <div class="label">Rent</div>
+                  <div class="edit">
+                     <div class="rupee">Rs.</div>
+                     <div class="values">
+                        <input type="text" placeholder="<%=data[i].price%>" size="20" id="priceinput">
+                     </div>
+                  </div>
+               </div>
+               <div class="securityEdit">
+                  <div class="label">Security Deposit</div>
+                  <div class="edit">
+                     <div class="rupee">Rs.</div>
+                     <div class="values">
+                        <input type="text" placeholder="<%=data[i].security_deposit%>" size="20" id="sdepinput">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="counterYes_Btn">
+               <div class="yesbtnText" onclick="sendCounterOffer(event)"data-identifier="<%=i%>" data-blah="<%=i%>" data-length="<%=data.length%>" data-page="<%=pageNo%>"  data-userflatid=<%=data[i].userflat_id%> data-id=<%=data[i].id%>>Send offer</div>
+            </div>
+         </div>
+         <div class="messageCounter one">
+            <div class="textContent">You have successfully sent counter offer!</div>
+         </div>
+         <div class="messageAccept one">
+            <div class="textContent">You have successfully accepted offer!</div>
+         </div>
+        </div>
+      </div>
+      <% } %>
+   </body>
+</html>
+<script type="text/javascript" src="/javascripts/fescript.js"></script>
+

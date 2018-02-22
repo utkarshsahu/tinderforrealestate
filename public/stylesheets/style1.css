@@ -1,0 +1,141 @@
+.main{
+  height: 636px;
+  background: grey;
+}
+.topbar{
+  display: flex;
+  flex-flow:row nowrap;
+  background: white;
+  height:6px;
+  justify-content: space-around;
+  padding:2px;
+}
+.property{
+  width: 100%;
+  height: 87%;
+  background: blue;
+}
+.bar{
+  background: grey;
+  width:30px;
+  border:solid 1px grey;
+  border-radius: 25px;
+}
+.imgdiv{
+  width: 100%;
+  height: 40%;
+}
+.imgdiv img{
+  width:100%;
+  height:100%;
+}
+.detail1{
+  height: 20%;
+  background: white;
+  display: flex;
+  flex-flow:column nowrap;
+}
+.propName{
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  height: 40%;
+  font-size:20px;
+  padding: 4px;
+}
+.moneyTalk{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;  
+}
+.price{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.rent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:violet;  
+}
+.rentValue{
+  
+}
+.security{
+   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.deposit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:violet;  
+}
+.depositValue{
+  
+}
+
+.detail2{
+  height: 20%;
+  background: white;
+  display: flex;
+  flex-flow:column nowrap;
+}
+
+.detail3{
+  height: 20%;
+  background: white;
+  display: flex;
+  flex-flow:column nowrap;
+}
+.detailname{
+  height: 30%;
+  padding: 4px;
+}
+.details_icon{
+  display: flex;
+  flex-flow:row nowrap;
+  justify-content: space-around;
+  height: 70%;
+  width: 100%;
+}
+.icon{
+  background: blanchedalmond;
+  height: 50px;
+  width: 50px;
+}
+.buttons{
+  height: 13%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+ 
+ 
+}
+.accept{
+  width:40%;
+  height:40%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Next{
+  width:40%;
+  height:40%;
+  justify-content: center;
+  align-items: center;
+}
+
+.one {
+  display: none;
+}
+
+.currentBar {
+  background: #4CAF50;
+}

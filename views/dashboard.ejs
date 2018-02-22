@@ -1,0 +1,93 @@
+
+
+<html>
+   <head>
+      <link rel="stylesheet" href="/stylesheets/offer.css">
+      
+   </head>
+   <body>
+      <div style="text-align: center">My Offers </div>
+      <div class="listOfProperties" id="root" >
+        <% for(var i = 0; i<data.length; i++) { %>
+         <div class="card" id="card<%=i%>">
+            <div class="prop-image-wrap">
+               <div class="prop-image">
+                  <img src='<%=cbids[i].cover_image_url%>' alt = "property-image" />
+               </div>
+            </div>
+            <div class="prop-content-wrap">
+               <div class="property-name-wrap">
+                  <a class="prop-name" class> <%=cbids[i].title%> </a>
+                  <span class = "by-prop-name">  </span>
+               </div>
+               <div class="prop-address">
+                  <!--address-->
+               </div>
+               <div class="prop-listing-details">
+                  <div class="prop-listing-details-col">
+                     <div class="prop-price">
+                        <span class="val">
+                          Original Price
+                        </span>
+                     </div>
+                     <div class="lbl">
+                        <font color="#999" size=2px><%=cbids[i].price%> </font>
+                     </div>
+                  </div>
+                  <div class="prop-listing-details-col">
+                     <div class="prop-size">
+                        <span class="val">
+                          Original Deposit
+                        </span>
+                     </div>
+                     <div class="lbl">
+                        <font color="#999" size=2px> <%=cbids[i].security_deposit%></font>
+                     </div>
+                  </div>
+               </div>
+               <div class="prop-listing-details">
+                  <div class="prop-listing-details-col">
+                     <div class="prop-price">
+                        <span class="val">
+                          Offered Price
+                        </span>
+                     </div>
+                     <div class="lbl">
+                        <font color="#999" size=2px><%=data[i].counter_bidder_amount?data[i].counter_bidder_amount : cbids[i].price%> </font>
+                     </div>
+                  </div>
+                  <div class="prop-listing-details-col">
+                     <div class="prop-size">
+                        <span class="val">
+                          Offered Deposit
+                        </span>
+                     </div>
+                     <div class="lbl">
+                        <font color="#999" size=2px> <%=data[i].counter_bidder_security_amount? data[i].counter_bidder_security_amount : cbids[i].security_deposit%> </font>
+                     </div>
+                  </div>
+               </div>
+               <div class="buttonContainer" id="butgroup<%=i%>">
+                  <div class="prop-options">
+                     <button type="button" class="view-phone" id="make-offer-button-text<%=i%>" onclick="makeOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Make Offer</button>
+                  </div>
+                  <div class="prop-options">
+                     <button type="button" class="view-phone2"  onclick="abortOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Abort</button>
+                  </div>
+               </div>
+               <div class="offerButton one" id="off<%=i%>">
+                  <div class="acceptOffer" onclick="acceptOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Accept Offer
+                     
+                  </div>
+                  <div class="counterOffer"  onclick="counterOffer(event)">Counter Offer
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+         <% } %>
+      </div>
+   </body>
+   <script src="/javascripts/dash_script.js" type="text/javascript"></script>
+</html>
+

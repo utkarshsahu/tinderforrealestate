@@ -1,0 +1,311 @@
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script type="text/javascript" src="/javascripts/fescript.js"></script>
+
+    </head>
+
+    <body>
+
+        <h1>Your Preferences</h1>
+
+    <div class="topContainer">
+
+        
+
+            <div class="locationContainer">
+
+                    <div class="locationTitle">
+
+                        LOCATION
+
+                    </div>
+
+                    <br>
+
+                    <div id="locationSearchBox">
+
+                            <datalist id="languages">
+
+                              <option value="Andheri East">
+
+                              <option value="Andheri West">
+
+                              <option value="Bandra East">
+
+                              <option value="Bandra West">
+
+                                  <option value="Powai">
+
+                            </datalist>
+
+                                  
+
+                            <input type="text" placeholder="Search by locality..." list="languages" id="selectedCity" >      
+
+                    </div>
+
+                    <br>
+
+                    <div id="selectedLocation">
+
+                      <span> <button id = "city1" type="button" onclick="city1clicked()" > Add Locality +  </button> </span>
+
+                      <span> <button id = "city2" type="button" onclick="city2clicked()" > Add Locality +  </button> </span>
+
+                    </div>
+
+                </div>
+
+                
+
+                
+
+                
+
+        <div class="bedroomContainer">
+
+            <div class="bedroomTitle">
+
+                BHK TYPE
+
+            </div>
+
+            <div class="bedroomTypes">
+
+                <div class="bhk1">
+
+                        <div class="round">
+
+                                <input type="checkbox" id="checkbox1" />
+
+                                <label for="checkbox1">1 BHK</label>
+
+                        </div>
+
+                </div>                
+
+                <div class="bhk2">
+
+                        <div class="round">
+
+                                <input type="checkbox" id="checkbox2" />
+
+                                <label for="checkbox2">2 BHK</label>
+
+                        </div>
+
+                </div>
+
+                <div class="bhk3">
+
+                        <div class="round">
+
+                                <input type="checkbox" id="checkbox3" />
+
+                                <label for="checkbox3">3 BHK</label>
+
+                        </div>
+
+                </div>
+
+                <div class="bhk3plus">
+
+                        <div class="round">
+
+                                <input type="checkbox" id="checkbox4" />
+
+                                <label for="checkbox4">3+ BHK</label>
+
+                        </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="budgetContainer">
+
+                <div class="budgetTitle">
+
+                  
+
+                    BUDGET
+
+                     
+
+                  
+
+                  <span class="budgetRange">
+
+           
+
+                    <span id="minPrice"></span>
+
+                    <span id="maxPrice"></span>
+
+                  </span>
+
+           
+
+                </div>
+
+                
+
+                <div class="budgetTextFields">
+
+                  <div class="minField">
+
+                    <input type="text" id = "minValue"  placeholder="Min Price" onkeydown = "minUpdate()" onkeyup = "minUpdate()" onkeypress = "minUpdate()" >
+
+                  </div>    
+
+           
+
+                  <div class="maxField">
+
+                    <input type="text" id = "maxValue"  placeholder="Max Price" onkeydown = "maxUpdate()" onkeyup = "maxUpdate()" onkeypress = "maxUpdate()" >
+
+                  </div>
+
+                </div>
+
+             </div>
+
+            <div class="furnishingContainer">
+
+                <div class="furnishingTitle">
+
+                    FURNISHING TYPE
+
+                </div>
+
+                <div class="furnishingTypes">
+
+                    <div class="fully">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxFT1" />
+
+                                    <label for="checkboxFT1">Fully Furnished</label>
+
+                            </div>
+
+                    </div>
+
+                    <div class="semi">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxFT2" />
+
+                                    <label for="checkboxFT2">Semi Furnished</label>
+
+                            </div>
+
+                    </div>
+
+                    <div class="un">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxFT3" />
+
+                                    <label for="checkboxFT3">Unfurnished</label>
+
+                            </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="availableInContainer">
+
+                <div class="availableInTitle">
+
+                        AVAILABLE IN
+
+                </div>
+
+                <div class="availableInTypes">
+
+                    <div class="week">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxAI1" />
+
+                                    <label for="checkboxAI1">Within a Week</label>
+
+                            </div>
+
+                    </div>
+
+                    <div class="weekPlus">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxAI2" />
+
+                                    <label for="checkboxAI2">Within 15 Days</label>
+
+                            </div>
+
+                    </div>
+
+                    <div class="month">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxAI3" />
+
+                                    <label for="checkboxAI3">Within a Month</label>
+
+                            </div>
+
+                    </div>
+
+                    <div class="monthPlus">
+
+                            <div class="round">
+
+                                    <input type="checkbox" id="checkboxAI4" />
+
+                                    <label for="checkboxAI4">After a Month</label>
+
+                            </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footerContainer">
+
+                <div class="matchButton">
+
+                   <button id="matchButton" onClick="findMatch()">
+                    
+                        Let's find a match
+
+                    </button>
+
+                </div>
+
+            </div>
+
+    </div>        
+
+    </body>
+
+
+</html>
+
+        
