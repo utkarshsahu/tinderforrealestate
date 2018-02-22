@@ -1,0 +1,141 @@
+
+
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300" rel="stylesheet">
+      <link rel="stylesheet" href="/stylesheets/sellerOffer.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   </head>
+   <body>
+      <div class="myOffer" style="text-align: center">
+         <i class="material-icons">&#xE5C4;</i>
+         <div class="myOffertext">My Offers</div>
+      </div>
+      <div class="listOfProperties" id="root" >
+         <% for(var i = 0; i<data.length; i++) { %>
+         <div class="card">
+            <div class="offer-property-wrap">
+               <div class="prop-image-wrap">
+                  <div class="prop-image">
+                     <img src='${offerDataFlatDetails[iterator].cover_image_url}' alt = "property-image" />
+                  </div>
+               </div>
+               <div class="prop-content-wrap">
+                  <div class="property-name-wrap">
+                     <a class="prop-name" class> ${offerDataFlatDetails[iterator].title} </a>
+                     <span class = "by-prop-name">  </span>
+                  </div>
+                  <div class="prop-address">
+                     ${""}
+                  </div>
+                  <div class="prop-listing-details">
+                     <div class="prop-listing-details-col">
+                        <div class="prop-price">
+                           <span class="val">
+                           ${ "Original Price" }
+                           </span>
+                        </div>
+                        <div class="lbl">
+                           <font color="#999" size=2px>${offerDataFlatDetails[iterator].price} </font>
+                        </div>
+                     </div>
+                     <div class="prop-listing-details-col">
+                        <div class="prop-size">
+                           <span class="val">
+                           ${ "Original Deposit" }
+                           </span>
+                        </div>
+                        <div class="lbl">
+                           <font color="#999" size=2px> ${offerDataFlatDetails[iterator].security_deposit}</font>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="offerWrapper">
+                  <div class="price">Offered Price</div>
+                  <div class="deposit">Offered Deposit </div>
+               </div>
+               <div class="offerListContainer">
+                  <% for(var j = 0; j<len; j++) { %>
+                  <div class="offerList">
+                     <div class="currentList">
+                        <div class="currentPrice">
+                           Rs 45,000
+                        </div>
+                        <div class="currentDeposit">
+                           Rs 44,000
+                        </div>
+                        <div class="currentOffer" onclick="makeOffer(event)">Make Offer</div>
+                        <div class="currentAbort"  onclick="currentAbort(event)">
+                           Abort
+                        </div>
+                     </div>
+                     <div class="popupOverlay" id="pop1">
+                        <div class="popup">
+                           <div class="acceptOffer" onclick="showConfirmOffer(event)" data-identifier="1"> Accept Offer </div>
+                           <div class="counter" onclick="showEnterOffer(event)" data-identifier="1">Counter Offer</div>
+                        </div>
+                        <div class="one confirmOffer">
+                           <div class="confirmHead">Confirm Offer</div>
+                           <div class="moneyTalk">
+                              <div class="price">
+                                 <div class="rent">Rent</div>
+                                 <div class="rentValue">20000</div>
+                              </div>
+                              <div class="security">
+                                 <div class="deposit">Securit Deposit</div>
+                                 <div class="depositValue">100000</div>
+                              </div>
+                           </div>
+                           <div class="confirmYes_Btn">
+                              <div class="yesbtnText" onclick="showAcceptmessage(event)" data-identifier="1">Yes</div>
+                           </div>
+                        </div>
+                        <div class="enterOffer one">
+                           <div class="counterHead">Enter Counter Offer</div>
+                           <div class="offerArea">
+                              <div class="rentEdit">
+                                 <div class="label">Rent</div>
+                                 <div class="edit">
+                                    <div class="rupee">Rs.</div>
+                                    <div class="values">
+                                       <input type="text" placeholder="<10000>" size="10">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="securityEdit">
+                                 <div class="label">Security Deposit</div>
+                                 <div class="edit">
+                                    <div class="rupee">Rs.</div>
+                                    <div class="values">
+                                       <input type="text" placeholder="<10000>" size="10">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="counterYes_Btn">
+                              <div class="yesbtnText" onclick="sendCounterOffer(event)"data-identifier="1">Send Counter Offer</div>
+                           </div>
+                        </div>
+                        <div class="messageCounter one">
+                           <div class="textContent">You have successfully sent counter offer!</div>
+                        </div>
+                        <div class="messageAccept one">
+                           <div class="textContent">You have successfully accepted offer!</div>
+                        </div>
+                     </div>
+                  </div>
+                  <%}%>
+               </div>
+            </div>
+            <div class="ViewOffer" >
+               View All Offers
+            </div>
+         </div>
+         <%}%>
+      </div>
+   </body>
+   <script type="text/javascript" src="/javascripts/sellerOffer.js"></script>
+</html>
+

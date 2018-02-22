@@ -1,0 +1,139 @@
+
+
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300" rel="stylesheet">
+      <link rel="stylesheet" href="owner.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   </head>
+   <body>
+      <div class="myOffer" style="text-align: center">
+         <div class="arrow">
+            <i class="material-icons">&#xE5C4;</i>
+         </div>
+         <div class="myOffertext">My Offers</div>
+      </div>
+      <div class="upload">
+         <div class="upload_btn">
+            Upload More property and broadcast
+         </div>
+      </div>
+      <div class="empty">
+         <div class="card" id="card1">
+            <div class="propertyInfo">
+               <div class="imgArea">
+                  <img src="sample.jpeg">
+               </div>
+               <div class="details">
+                  <div class="propertyName">
+                     asdjhasjdhasjkdhajksdh
+                  </div>
+                  <div class="attributes">
+                     <div class="detail__">
+                        <div class="label2">Original Price</div>
+                        <div class="value2">Rs. 45,000</div>
+                     </div>
+                     <div class="detail__">
+                        <div class="label2">Original Deposit</div>
+                        <div class="value2">Rs. 1.6L</div>
+                     </div>
+                     <div class="detail__2">
+                        <div class="label2">Original Brokerage</div>
+                        <div class="value2">50%</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="offerArea">
+               <div class="offertags">
+                  <div class="tag_label">
+                     Offered <br />Price
+                  </div>
+                  <div class="tag_label">
+                     Offered <br />Deposits
+                  </div>
+                  <div class="tag_label">
+                     Offered <br />Brokerage
+                  </div>
+               </div>
+               <div class="offer" id="offer1">
+                  <div class="tagValue">
+                     Rs. 50,000
+                  </div>
+                  <div class="tagValue">
+                     Rs. 1.6L
+                  </div>
+                  <div class="tagValue">
+                     45%
+                  </div>
+                  <div class="button" onclick="showPopup(event)" data-offerno="1" data-cardno="1">
+                     Make Offer
+                  </div>
+                  <div class="button">
+                     Reject
+                  </div>
+                  <div class="popupOverlay" id="card1pop1">
+                     <div class="popup one">
+                        <div class="acceptOffer" onclick="showConfirmOffer(event)" data-cardno="1" data-offerno="1"> Accept Offer </div>
+                        <div class="counter" onclick="showEnterOffer(event)" data-cardno="1" data-offerno="1">Counter Offer</div>
+                     </div>
+                     <div class="confirmOffer one">
+                        <div class="confirmHead">Confirm Offer</div>
+                        <div class="moneyTalk">
+                           <div class="price">
+                              <div class="rent">Rent</div>
+                              <div class="rentValue">20000</div>
+                           </div>
+                           <div class="security">
+                              <div class="deposit">Securit Deposit</div>
+                              <div class="depositValue">100000</div>
+                           </div>
+                        </div>
+                        <div class="confirmYes_Btn">
+                           <div class="yesbtnText" onclick="showAcceptmessage(event)" data-cardno="1" data-offerno="1">Yes</div>
+                        </div>
+                     </div>
+                     <div class="enterOffer one">
+                        <div class="counterHead">Enter Counter Offer</div>
+                        <div class="offerArea2">
+                           <div class="rentEdit">
+                              <div class="label">Rent</div>
+                              <div class="edit">
+                                 <div class="rupee">Rs.</div>
+                                 <div class="values">
+                                    <input type="text" placeholder="<10000>" size="10">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="securityEdit">
+                              <div class="label">Security Deposit</div>
+                              <div class="edit">
+                                 <div class="rupee">Rs.</div>
+                                 <div class="values">
+                                    <input type="text" placeholder="<10000>" size="10">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="counterYes_Btn">
+                           <div class="yesbtnText" onclick="sendCounterOffer(event)" data-cardno="1" data-offerno="1">Send Counter Offer</div>
+                        </div>
+                     </div>
+                     <div class="messageCounter one">
+                        <div class="textContent">You have successfully sent counter offer!</div>
+                     </div>
+                     <div class="messageAccept one">
+                        <div class="textContent">You have successfully accepted offer!</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="viewAll">
+               View All Offers
+            </div>
+         </div>
+      </div>
+   </body>
+   <script type="text/javascript" src="/javascripts/sellerOffer.js"></script>
+</html>
+
