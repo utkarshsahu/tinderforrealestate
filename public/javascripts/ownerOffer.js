@@ -76,8 +76,8 @@ function showAcceptmessage(event){
 
   updateApi(jsondata, bidid);
 
-  document.getElementById("make-offer-button-text"+identifieri+identifierj).innerHTML = 'Waiting for token';
-  document.getElementById("off"+idi+idj).classList.add("one");
+  document.getElementById("make-offer-button-text"+identifieri+identifierj).innerHTML = 'Listing Claimed';
+  document.getElementById("off"+identifieri+identifierj).classList.add("one");
 
 
 
@@ -136,9 +136,13 @@ function sendCounterOffer(event){
 
   var identifieri=data.identifieri;
 
-  var identifierj=data.offerno;
+  var identifierj=data.identifierj;
   
   var bidid=data.bidid;
+  
+  var priceval = parseInt(document.getElementById("price"+identifieri+identifierj).value);
+  var sdepval = parseInt(document.getElementById("sdep"+identifieri+identifierj).value);
+  var brokerageval = parseInt(document.getElementById("brokerage"+identifieri+identifierj).value);
 
   var card=document.getElementById("off"+identifieri+identifierj);
 
@@ -151,7 +155,8 @@ function sendCounterOffer(event){
      "status":"COUNTERBID",
      "profile_type" : "Seller",
      "counter_bidder_amount" : priceval,
-     "counter_bidder_security_amount" : sdepval
+     "counter_bidder_security_amount" : sdepval,
+     "brokerage": brokerageval
    }
   );
   updateApi(jsondata, bidid);

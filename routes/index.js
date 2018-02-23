@@ -187,7 +187,7 @@ exports.loadOwnerDashboard = function(req, res) {
   request(options2, function (error2, response2, body2) {
   if (error2) throw new Error(error2);
    console.log(obj);
-    res.render('dashboard_seller', {data:obj, cbids: JSON.parse(body2), keys: allKeys});
+    res.render('owner', {data:obj, cbids: JSON.parse(body2), keys: allKeys});
   });
   });
 }

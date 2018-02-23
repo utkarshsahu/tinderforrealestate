@@ -93,11 +93,11 @@
                      <div class="moneyTalk">
                         <div class="price">
                            <div class="rent">Rent</div>
-                           <div class="rentValue">20000</div>
+                           <div class="rentValue"><%=data[i].counter_bidder_amount?data[i].counter_bidder_amount : cbids[i].price%></div>
                         </div>
                         <div class="security">
-                           <div class="deposit">Securit Deposit</div>
-                           <div class="depositValue">100000</div>
+                           <div class="deposit">Security Deposit</div>
+                           <div class="depositValue"><%=data[i].counter_bidder_security_amount? data[i].counter_bidder_security_amount : cbids[i].security_deposit%></div>
                         </div>
                      </div>
                      <div class="confirmYes_Btn">

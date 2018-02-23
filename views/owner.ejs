@@ -3,7 +3,7 @@
 <html>
    <head>
       <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300" rel="stylesheet">
-      <link rel="stylesheet" href="owner.css">
+      <link rel="stylesheet" href="/stylesheets/owner.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    </head>
    <body>
@@ -68,9 +68,13 @@
                   <div class="tagValue">
                      <%=data[keys[i]][j].bidder_brokerage%>
                   </div>
+                  <% if(data[keys[i]][j].status==='ACCEPTED') {%>
+                    <div class="button">Listing Claimed</div>
+                  <% } else { %>
                   <div class="button" onclick="showPopup(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> id="make-offer-button-text<%=i%><%=j%>">
                      Make Offer
                   </div>
+                  <% } %>
                   <div class="button">
                      Reject
                   </div>
@@ -103,7 +107,7 @@
                               <div class="edit">
                                  <div class="rupee">Rs.</div>
                                  <div class="values">
-                                    <input type="text" placeholder="<<%=data[keys[i]][j].bidder_amount%>>" size="10">
+                                    <input type="text" placeholder="<<%=data[keys[i]][j].bidder_amount%>>" size="5" id="price<%=i%><%=j%>">
                                  </div>
                               </div>
                            </div>
@@ -112,10 +116,20 @@
                               <div class="edit">
                                  <div class="rupee">Rs.</div>
                                  <div class="values">
-                                    <input type="text" placeholder="<<%=data[keys[i]][j].bidder_security_amount%>>" size="10">
+                                    <input type="text" placeholder="<<%=data[keys[i]][j].bidder_security_amount%>>" size="5" id="sdep<%=i%><%=j%>" >
                                  </div>
                               </div>
                            </div>
+                           <div class="securityEdit">
+                              <div class="label">Security Deposit</div>
+                              <div class="edit">
+                                 <div class="rupee">Rs.</div>
+                                 <div class="values">
+                                    <input type="text" placeholder="<<%=data[keys[i]][j].brokerage%>>" size="5" id="brokerage<%=i%><%=j%>" >
+                                 </div>
+                              </div>
+                           </div>
+                           
                         </div>
                         <div class="counterYes_Btn">
                            <div class="yesbtnText" onclick="sendCounterOffer(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> data-bidid=<%=data[keys[i]][j].id%>>Send Counter Offer</div>
