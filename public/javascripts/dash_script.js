@@ -39,7 +39,7 @@ function makeOffer(event) {
     if(cDialog) {
       updateApi(jsondata, bidid);
       // Include a check for an expired offer!!!
-      alert("Amount Paid. Congrats deal closed.\nContact Seller: 9999999999")
+      alert("Amount Paid. Congrats deal closed.\n")
       document.getElementById("butgroup"+id).innerHTML = 'Deal Closed!';
     }
   }

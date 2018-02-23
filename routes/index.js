@@ -4,11 +4,22 @@ var request = require("request");
 var LocalStorage = require('node-localstorage').LocalStorage,
 localStorage = new LocalStorage('./scratch');
 var apiServer = "http://rakesh.kumar.housing.com:3000/api/filter-flats";
-var serverUrl = "http://rakesh.kumar.housing.com:3000";
+var serverUrl = "http://rakesh.kumar.housing.com:3000/";
+//var global_uid;
 
 /* GET home page. */
-exports.hello = function(req, res) {
-  res.render('index');
+
+exports.showLogin = function(req, res) {
+    res.render('login');
+}
+
+exports.showWelcome = function(req, res) {
+  global_uid = req.query.uid;
+  res.render('welcome', {uid: req.query.uid});
+}
+exports.showPrefs = function(req, res) {
+  global_uid = req.query.uid;
+  res.render('index',{uid:req.query.uid});
 };
 
 exports.nextProp = function(req, res) {
@@ -47,7 +58,7 @@ exports.loadProp = function(req, res) {
       if (error) throw new Error(error);
       console.log(body);
       obj = JSON.parse(body);
-    res.render('property', {title:'LeasyLife', data: obj, url: serverUrl, pageNo: req.query["page"] || 1});
+    res.render('property', {title:'LeasyLife', data: obj, url: serverUrl, pageNo: req.query["page"] || 1, uid: req.query.uid});
   });
 
   
@@ -55,9 +66,9 @@ exports.loadProp = function(req, res) {
 
 exports.loadDashboard = function(req, res) {
   var options = { method: 'GET',
-  url: 'http://10.1.8.85:3001/api/list-all-bids',
+  url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
   qs: 
-   { profile_uuid: '83c01602-5a94-4d30-8e86-e59a795b4fe5',
+   { profile_uuid: req.query.uid,
      profile_type: 'Buyer' },
   headers: 
    {
@@ -73,7 +84,7 @@ exports.loadDashboard = function(req, res) {
     console.log(body);
     console.log(counter_bidder_ids);
     var options2 = { method: 'GET',
-      url: 'http://10.1.8.85:3001/api/user-flat-details',
+      url: 'http://rakesh.kumar.housing.com:3000/api/user-flat-details',
       qs: { user_flat_ids: counter_bidder_ids.toString() },
       headers: 
       {
@@ -93,7 +104,7 @@ exports.loadOwnerDashboard = function(req, res) {
   var options = { method: 'GET',
   url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
   qs: 
-   { profile_uuid: '39355bc2-4fa5-48b8-90cb-047ea4bbcdf1',
+   { profile_uuid: global_uid,
      profile_type: 'Seller' },
   headers: 
    { 
@@ -114,6 +125,36 @@ exports.loadOwnerDashboard = function(req, res) {
   if (error2) throw new Error(error2);
   //  console.log(body2);
     res.render('dashboard', {data:obj, cbids: JSON.parse(body2)});
+  });
+  });
+}
+
+exports.loadSellerDashboard = function(req, res) {
+  var options = { method: 'GET',
+  url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
+  qs: 
+   { profile_uuid: req.query.uid,
+     profile_type: 'Seller' },
+  headers: 
+   { 
+     'cache-control': 'no-cache' } };
+
+  request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+  obj = JSON.parse(body);
+  console.log(obj);
+  var allKeys = Object.keys(obj);
+  var options2 = { method: 'GET',
+    url: 'http://rakesh.kumar.housing.com:3000/api/user-flat-details',
+    qs: { user_flat_ids: allKeys.toString() },
+    headers: 
+    {
+      'cache-control': 'no-cache' } };
+
+  request(options2, function (error2, response2, body2) {
+  if (error2) throw new Error(error2);
+   console.log(obj);
+    res.render('dashboard_seller', {data:obj, cbids: JSON.parse(body2), keys: allKeys});
   });
   });
 }

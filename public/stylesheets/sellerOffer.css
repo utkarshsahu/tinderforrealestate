@@ -1007,13 +1007,21 @@ letter-spacing: normal;
 .offerList{
 
   display:flex;
-
   flex-flow: column nowrap;
 
   justify-content: space-around;
+  
 
 }
 
+.offerListContainer {
+  height: 72px;
+  overflow-y: scroll;
+}
+
+.white {
+  background-color: #fff; !important
+}
 .myOffer{
 
   display: flex;

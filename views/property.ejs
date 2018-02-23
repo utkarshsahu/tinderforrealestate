@@ -11,12 +11,12 @@
    <body>
       <div class="topbar">
         <div class="offer-btn">
-         <div class="btn2" onclick="showPref()">
+         <div class="btn2" onclick="showPref('<%=uid%>')">
 
            Edit Preferences
 
          </div>
-         <div class="btn" onclick="showDashboard()">
+         <div class="btn" onclick="showDashboard('<%=uid%>')">
            My Offers
          </div>     
         </div>
@@ -162,7 +162,7 @@
                </div>
             </div>
             <div class="confirmYes_Btn">
-               <div class="yesbtnText" onclick="showAcceptmessage(event)" data-identifier="<%=i%>" data-blah="<%=i%>" data-length="<%=data.length%>" data-page="<%=pageNo%>" data-userflatid=<%=data[i].userflat_id%> data-id=<%=data[i].id%> data-price=<%=data[i].price%> data-sdep=<%=data[i].security_deposit%>>Yes</div>
+               <div class="yesbtnText" onclick="showAcceptmessage(event)" data-uid="<%=uid%>"data-identifier="<%=i%>" data-blah="<%=i%>" data-length="<%=data.length%>" data-page="<%=pageNo%>" data-userflatid=<%=data[i].userflat_id%> data-id=<%=data[i].id%> data-price=<%=data[i].price%> data-sdep=<%=data[i].security_deposit%>>Yes</div>
             </div>
          </div>
          <div class="enterOffer one">
@@ -188,7 +188,7 @@
                </div>
             </div>
             <div class="counterYes_Btn">
-               <div class="yesbtnText" onclick="sendCounterOffer(event)"data-identifier="<%=i%>" data-blah="<%=i%>" data-length="<%=data.length%>" data-page="<%=pageNo%>"  data-userflatid=<%=data[i].userflat_id%> data-id=<%=data[i].id%>>Send offer</div>
+               <div class="yesbtnText" onclick="sendCounterOffer(event)" data-uid="<%=uid%>" data-identifier="<%=i%>" data-blah="<%=i%>" data-length="<%=data.length%>" data-page="<%=pageNo%>"  data-userflatid=<%=data[i].userflat_id%> data-id=<%=data[i].id%>>Send offer</div>
             </div>
          </div>
          <div class="messageCounter one">

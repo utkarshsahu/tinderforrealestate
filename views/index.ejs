@@ -3,31 +3,47 @@
 <html>
    <head>
       <link rel="stylesheet" href="/stylesheets/style.css">
-      <script type="text/javascript" src="/javascripts/fescript.js"></script>
+      <script src="http://code.jquery.com/jquery-latest.js"></script>
    </head>
    <body>
-      <h1>Your Preferences</h1>
+      <div class = "header">
+         <div class = "my-dashboard-text">
+            Your Preferences
+         </div>
+      </div>
       <div class="topContainer">
          <div class="locationContainer">
             <div class="locationTitle">
                LOCATION
             </div>
             <br>
-            <div id="locationSearchBox">
+            <dIV id="locationSearchBox">
                <datalist id="languages">
-                  <option value="Andheri East">
+                  <option value="Andheri East" onkeydown="">
                   <option value="Andheri West">
                   <option value="Bandra East">
                   <option value="Bandra West">
                   <option value="Powai">
                </datalist>
-               <input type="text" placeholder="Search by locality..." list="languages" id="selectedCity" >      
+               <!-- <div class=>
+                  <div onclick="l1Clicked()">Andheri East</div> 
+                  
+                  <div onclick="l2Clicked()">Andheri West</div>
+                  
+                  <div onclick="l3Clicked()">Bandra East</div>
+                  
+                  <div onclick="l4Clicked()">Bandra West</div>
+                  
+                  <div onclick="l5Clicked()">Powai</div>
+                  
+                  </div> -->
+               <input type="text" placeholder="Search by locality..." list="languages" id="selectedCity" onkeypress="locationKeyPressed(event)"  onkeydown="locationKeyPressed(event)" onkeyup="locationKeyPressed(event)">  
+               <div id="selectedLocation">
+               <span> <button id = "city1" type="button" onclick="city1clicked()" >Powai</button> </span>
+               <span> <button id = "city2" type="button" onclick="city2clicked()" > Add Locality +  </button> </span>
+               </div> 
             </div>
             <br>
-            <div id="selectedLocation">
-            <span> <button id = "city1" type="button" onclick="city1clicked()" > Add Locality +  </button> </span>
-            <span> <button id = "city2" type="button" onclick="city2clicked()" > Add Locality +  </button> </span>
-            </div>
          </div>
          <div class="bedroomContainer">
          <div class="bedroomTitle">
@@ -37,7 +53,7 @@
          <div class="bhk1">
          <div class="round">
          <input type="checkbox" id="checkbox1" />
-         <label for="checkbox1">1 BHK</label>
+         <label class="b1" for="checkbox1">1 BHK</label>
          </div>
          </div>                
          <div class="bhk2">
@@ -109,13 +125,13 @@
          <div class="availableInTypes">
          <div class="week">
          <div class="round">
-         <input type="checkbox" id="checkboxAI1" />
+         <input type="checkbox" id="checkboxAI1"/>
          <label for="checkboxAI1">Within a Week</label>
          </div>
          </div>
          <div class="weekPlus">
          <div class="round">
-         <input type="checkbox" id="checkboxAI2" />
+         <input type="checkbox" id="checkboxAI2"  />
          <label for="checkboxAI2">Within 15 Days</label>
          </div>
          </div>
@@ -133,14 +149,13 @@
          </div>
          </div>
          </div>
-         <div class="footerContainer">
-         <div class="matchButton">
-         <button id="matchButton" onClick="findMatch()">
+         <div class="footerContainer" > 
+         <div class="matchButton" onclick="findMatch('<%=uid%>')"> 
          Let's find a match
-         </button>
          </div>
          </div>
       </div>
    </body>
+   <script typr="text/javascript" src="/javascripts/fescript.js"></script>
 </html>
 

@@ -21,11 +21,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', routes.hello);
-app.get('/property/:id', routes.nextProp);
+app.get('/', routes.showLogin);
+app.get('/filter', routes.showPrefs);
+//app.get('/property/:id', routes.nextProp);
 app.get('/property', routes.loadProp);
 app.get('/dashboard', routes.loadDashboard);
 app.get('/ownerdashboard', routes.loadOwnerDashboard);
+app.get('/sellerdashboard', routes.loadSellerDashboard);
+app.get('/welcome', routes.showWelcome);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

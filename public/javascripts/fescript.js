@@ -2,7 +2,7 @@ let count=0;
 
 minUpdate = () => {
 
-    document.getElementById("minPrice").innerHTML = "₹Rs." +  document.getElementById("minValue").value + " - ";
+    document.getElementById("minPrice").innerHTML = "₹" +  document.getElementById("minValue").value + " - ";
 
 }
 
@@ -10,7 +10,7 @@ minUpdate = () => {
 
 maxUpdate = () => {
 
-    document.getElementById("maxPrice").innerHTML = "₹Rs." +  document.getElementById("maxValue").value;
+    document.getElementById("maxPrice").innerHTML = "₹" +  document.getElementById("maxValue").value;
 
 }
 
@@ -66,7 +66,7 @@ city2clicked = () => {
 
 
 
-findMatch = () => {
+findMatch = (uid) => {
 
     let localityid = [];
 
@@ -162,10 +162,10 @@ findMatch = () => {
 
     }
 
-    let url = "http://10.1.8.77:3001/api/v1/flat/filter_for_rent?";
+    //let url = "http://10.1.8.77:3001/api/v1/flat/filter_for_rent?";
 
     urlAfter = `locality_ids=${localityid.toString()}&apartment_ids=${apartmentid.toString()}&furnishing_type_ids=${furnishing_type_id.toString()}&min_price=${minValue}&max_price=${maxValue}&available_from=${available_from}`;
-    window.location = window.location.href +'property?'+urlAfter;
+    window.location.href = 'http://'+window.location.href.split('/')[2] +'/property?'+urlAfter+'&uid='+uid;
     
 
 
@@ -229,6 +229,7 @@ function showAcceptmessage(event){
 
   var id=data.identifier;
 
+  var uid = data.uid;
   var card=document.getElementById("pop"+id);
 
   var elementToHide=card.getElementsByClassName("confirmOffer");
@@ -240,7 +241,7 @@ function showAcceptmessage(event){
 //  console.log(data)
 
   var data2 = JSON.stringify({
-  "profile_uuid": "83c01602-5a94-4d30-8e86-e59a795b4fe5",
+  "profile_uuid": uid, //"83c01602-5a94-4d30-8e86-e59a795b4fe5",
   "flat_id": flatid,
   "bidder_amount": parseInt(data.price),
   "bidder_security_amount": parseInt(data.sdep),
@@ -318,6 +319,7 @@ function sendCounterOffer(event){
   var data=event.target.dataset;
 
   var id=data.identifier;
+  var uid = data.uid;
 
   var card=document.getElementById("pop"+id);
 
@@ -329,7 +331,7 @@ function sendCounterOffer(event){
   var flatid = data.id;
 
   var data2 = JSON.stringify({
-  "profile_uuid": "83c01602-5a94-4d30-8e86-e59a795b4fe5",
+  "profile_uuid": uid,//"83c01602-5a94-4d30-8e86-e59a795b4fe5",
   "flat_id": flatid,
   "bidder_amount": parseInt(card.querySelector("#priceinput").value),
   "bidder_security_amount": parseInt(card.querySelector("#sdepinput").value),
@@ -384,10 +386,10 @@ xhr.send(data2);
 
 }
 
-function showPref() {
-  window.location.href = "http://"+window.location.href.split('/')[2];
+function showPref(uid) {
+  window.location.href = "http://"+window.location.href.split('/')[2]+'/filter?uid='+uid;
 }
 
-function showDashboard() {
-  window.location.href = "http://"+window.location.href.split('/')[2]+'/dashboard';
+function showDashboard(uid) {
+  window.location.href = "http://"+window.location.href.split('/')[2]+'/dashboard?uid='+uid;
 }

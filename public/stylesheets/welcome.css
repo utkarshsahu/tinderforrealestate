@@ -1,0 +1,21 @@
+.welcome{
+
+  position: fixed;
+
+  left:0px;
+
+  top:0px;
+
+  width:360px;
+
+  height:640px;
+
+}
+
+.welcome img{
+
+  width: 100%;
+
+  height: 100%;
+
+}

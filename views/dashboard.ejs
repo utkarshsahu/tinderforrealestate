@@ -71,8 +71,13 @@
                
                <div class="buttonContainer" id="butgroup<%=i%>">
                   <div class="prop-options">
-                     <button type="button" class="view-phone" id="make-offer-button-text<%=i%>" onclick="makeOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Make Offer</button>
-                
+                    <%if(data[i].status==='ABORTED'){%>
+                     <div>ABORTED</div>
+                    <% } else if(data[i].status==='ACCEPTED') {%>
+                      <button type="button" class="view-phone" id="make-offer-button-text<%=i%>" onclick="makeOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Pay Token</button>
+                    <% } else {%>
+                      <button type="button" class="view-phone" id="make-offer-button-text<%=i%>" onclick="makeOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Make Offer</button>
+                    <%}%>
                   </div>
                   <div class="prop-options">
                      <button type="button" class="view-phone2"  onclick="abortOffer(event)" data-identifier=<%=i%> data-bidid=<%=data[i].id%>>Abort</button>
