@@ -1,0 +1,151 @@
+.header {
+
+   background-color:  #5e23dc;
+
+   height: 8%;
+
+   display: flex;
+
+   flex-flow: row nowrap;
+
+}
+
+.my-dashboard-text {
+
+   display: flex;
+
+   color: white;
+
+   margin-left:5%;
+
+   font-family: 'Roboto', sans-serif;
+
+ font-size: 17px;
+
+ font-weight: normal;
+
+   
+
+ font-style: normal;
+
+ font-stretch: normal;
+
+ line-height: normal;
+
+ letter-spacing: normal;
+
+   justify-content: center;
+
+   align-items: center;
+
+}
+
+.material-icons {
+
+   color: white;
+
+   position: relative;
+
+   top: 25%;
+
+   left: 2%;
+
+   width:30%
+
+   
+
+}
+
+.center-container{
+
+    font-family: 'Roboto', sans-serif;
+
+ font-size: 14px;
+
+ font-weight: 600;
+
+   
+
+ font-style: normal;
+
+ font-stretch: normal;
+
+ line-height: normal;
+
+ letter-spacing: normal;
+
+    position: absolute;
+
+    top: 40%;
+
+    left: 25%;
+
+    display: flex;
+
+    flex-flow:column nowrap;
+
+    background: white;
+
+    width: 40%;
+
+    padding: 1%;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 15%;
+
+    margin-left: 5%;
+
+    opacity: 1;
+
+   }
+
+   .check-user-offers{
+
+       cursor: pointer;
+
+    display: flex;;
+
+    color: #1dd38f;
+
+    
+
+    width:210%;
+
+    height: 40%;
+
+    justify-content: center;
+
+    align-items: center;
+
+     border: solid 1px #1dd38f
+
+   }
+
+   .claim-owner-listing{
+
+       cursor: pointer;
+
+    margin-top: 15%;
+
+    width: 210%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #1dd38f;
+
+    height: 40%;
+
+    border: solid 1px #1dd38f;
+
+      
+
+    
+
+   }

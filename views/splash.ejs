@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <link rel="stylesheet" href="/stylesheets/splash.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   </head>
+   <body>
+      <div class = "full-container">
+         <div class="header"> 
+            <i class="material-icons">&#xE5C4;</i>
+            <span class="my-dashboard-text"> My Dashboard </span>
+         </div>
+         <div class="center-container">
+            <div class="check-user-offers" onclick="checkUserOffers('<%=uid%>')"> Check user offers </div>
+            <div class="claim-owner-listing" onclick="claimOwnerListing('<%=uid%>')" >Claim owner listing</div>
+         </div>
+      </div>
+   </body>
+   <script type="text/javascript" src="/javascripts/splash.js"></script>
+</html>
+
