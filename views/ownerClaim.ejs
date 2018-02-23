@@ -57,6 +57,8 @@
             <div class="offerArea">
               <%if(data[i].status==='COUNTERBID') {%>
                 <div class="button1">Waiting for Offer</div>
+              <% else if(data[i].status==='ACCEPTED' || data[i].status==='COMPLETED') {%>
+                  <div class="button1">Deal Closed</div>
               <%} else{ %>
                <div class="button1" id="make<%=i%>" onclick="showPopup(event)" data-cardno=<%=i%>>
                   Make Offer
