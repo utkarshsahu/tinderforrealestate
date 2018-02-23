@@ -152,7 +152,7 @@ function sendCounterOffer(event){
 
   var jsondata = JSON.stringify(
     {
-     "status":"COUNTERBID",
+     "status":"BID",
      "profile_type" : "Seller",
      "counter_bidder_amount" : priceval,
      "counter_bidder_security_amount" : sdepval,
