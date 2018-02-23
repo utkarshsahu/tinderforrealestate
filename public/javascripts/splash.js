@@ -6,6 +6,6 @@ window.location.href = "http://"+window.location.href.split('/')[2]+'/sellerdash
 
 claimOwnerListing = (uid) => {
 
-//window.location.href = "http://"+window.location.href.split('/')[2]+'/owner?uid='+uid;
+window.location.href = "http://"+window.location.href.split('/')[2]+'/ownerclaim?uid='+uid;
 
 }
