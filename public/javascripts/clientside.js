@@ -21,7 +21,7 @@ function doSomething() {
     window.location.href = "http://"+window.location.href.split('/')[2]+'/splash?uid='+uid;
   }
   else if(phone==='9819201271') {
-    uid = '891c7e86-f407-4ce4-9ff9-1094ba68beff';
+    uid = '905b553e-6987-4f94-8c7c-977aa7c28127';
     window.location.href = "http://"+window.location.href.split('/')[2]+'/ownerdashboard?uid='+uid;
   }
 }

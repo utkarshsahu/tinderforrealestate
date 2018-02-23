@@ -66,10 +66,12 @@
                      <%=data[keys[i]][j].bidder_security_amount%>
                   </div>
                   <div class="tagValue">
-                     <%=data[keys[i]][j].bidder_brokerage%>
+                     <%=data[keys[i]][j].brokerage%>
                   </div>
                   <% if(data[keys[i]][j].status==='ACCEPTED') {%>
                     <div class="button">Listing Claimed</div>
+                  <% } else if(data[keys[i]][j].status==='COUNTERBID'){ %>
+                    <div class="button">Awaiting Offer</div>
                   <% } else { %>
                   <div class="button" onclick="showPopup(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> id="make-offer-button-text<%=i%><%=j%>">
                      Make Offer

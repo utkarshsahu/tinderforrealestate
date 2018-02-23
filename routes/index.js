@@ -103,11 +103,11 @@ exports.loadDashboard = function(req, res) {
   });
 }
 
-exports.loadOwnerDashboard = function(req, res) {
+/*exports.loadOwnerDashboard = function(req, res) {
   var options = { method: 'GET',
   url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
   qs: 
-   { profile_uuid: global_uid,
+   { profile_uuid: req.query.id,
      profile_type: 'Seller' },
   headers: 
    { 
@@ -130,7 +130,7 @@ exports.loadOwnerDashboard = function(req, res) {
     res.render('dashboard', {data:obj, cbids: JSON.parse(body2)});
   });
   });
-}
+}*/
 
 exports.loadSellerDashboard = function(req, res) {
   var options = { method: 'GET',
