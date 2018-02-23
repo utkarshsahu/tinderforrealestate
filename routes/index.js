@@ -22,6 +22,9 @@ exports.showPrefs = function(req, res) {
   res.render('index',{uid:req.query.uid});
 };
 
+exports.showSplash = function(req, res) {
+  res.render('splash', {uid:req.query.uid});
+}
 exports.nextProp = function(req, res) {
   
 }
@@ -130,6 +133,36 @@ exports.loadOwnerDashboard = function(req, res) {
 }
 
 exports.loadSellerDashboard = function(req, res) {
+  var options = { method: 'GET',
+  url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
+  qs: 
+   { profile_uuid: req.query.uid,
+     profile_type: 'Seller' },
+  headers: 
+   { 
+     'cache-control': 'no-cache' } };
+
+  request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+  obj = JSON.parse(body);
+  console.log(obj);
+  var allKeys = Object.keys(obj);
+  var options2 = { method: 'GET',
+    url: 'http://rakesh.kumar.housing.com:3000/api/user-flat-details',
+    qs: { user_flat_ids: allKeys.toString() },
+    headers: 
+    {
+      'cache-control': 'no-cache' } };
+
+  request(options2, function (error2, response2, body2) {
+  if (error2) throw new Error(error2);
+   console.log(obj);
+    res.render('dashboard_seller', {data:obj, cbids: JSON.parse(body2), keys: allKeys});
+  });
+  });
+}
+
+exports.loadOwnerDashboard = function(req, res) {
   var options = { method: 'GET',
   url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
   qs: 

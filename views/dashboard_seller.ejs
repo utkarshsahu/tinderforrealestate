@@ -1,5 +1,5 @@
 
-
+<!DOCTYPE html>
 <html>
    <head>
       <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300" rel="stylesheet">
@@ -14,7 +14,7 @@
       </div>
       <div class="listOfProperties" id="root" >
          <% for(var i = 0; i<keys.length; i++) { %>
-         <div class="card<%=i%>">
+         <div class="card" id='card<%=i%>'>
             <div class="offer-property-wrap">
                <div class="prop-image-wrap">
                   <div class="prop-image">
@@ -60,9 +60,9 @@
                   <% for(var j = 0; j<data[keys[i]].length; j++) { %>
                   <div class="offerList">
                     <% if(j%2==0) { %>
-                     <div class="currentList">
+                     <div class="currentList" style="background-color:#fff">
                     <% }else {%>
-                      <div class="currentList white">
+                      <div class="currentList">
                     <%}%>
                         <div class="currentPrice">
                            Rs <%=data[keys[i]][j].bidder_amount%>
@@ -75,13 +75,17 @@
                         <% } else if(data[keys[i]][j].status==='BID') { %>
                           <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>"onclick="makeOffer(event)" data-identifieri=<%=i%> data-identifierj=<%=j%>>Make Offer</div>
                         <% } else if(data[keys[i]][j].status==='ACCEPTED') {%>
-                          <div class="currentOffer">Waiting for Token</div> 
+                          <div class="currentOffer" >Awaiting Token</div> 
                         <%} else {%>
                           <div class="currentOffer"><%=data[keys[i]][j].status%></div>
                         <%}%>
+                        <%if(data[keys[i]][j].status!=='ABORTED') {%>
                         <div class="currentAbort"  onclick="abortOffer(event)" data-identifieri=<%=i%>>
-                           Abort
+                           Reject
                         </div>
+                        <% } else {%>
+                          <div class="currentAbort" style="visibility:hidden"></div>
+                        <%}%>
                      </div>
                      <div class="popupOverlay" id="off<%=i%><%=j%>" >
                         <div class="popup">
@@ -112,7 +116,7 @@
                                  <div class="edit">
                                     <div class="rupee">Rs.</div>
                                     <div class="values">
-                                       <input type="text" placeholder="<10000>" size="10" id="price<%=i%><%=j%>">
+                                       <input type="text" placeholder="<<%=data[keys[i]][j].bidder_amount%>>" size="10" id="price<%=i%><%=j%>">
                                     </div>
                                  </div>
                               </div>
@@ -121,7 +125,7 @@
                                  <div class="edit">
                                     <div class="rupee">Rs.</div>
                                     <div class="values">
-                                       <input type="text" placeholder="<10000>" size="10" id="sdep<%=i%><%=j%>">
+                                       <input type="text" placeholder="<<%=data[keys[i]][j].bidder_security_amount%>>" size="10" id="sdep<%=i%><%=j%>">
                                     </div>
                                  </div>
                               </div>
@@ -144,7 +148,7 @@
             <div class="ViewOffer" >
                View All Offers
             </div>
-         </div>
+         
          <%}%>
       </div>
    </body>

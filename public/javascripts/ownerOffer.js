@@ -1,12 +1,29 @@
+function updateApi(data, bidid) {
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+
+  xhr.open("PUT", "http://10.1.8.64:3000/api/update-bid/"+bidid);
+  xhr.setRequestHeader("content-type", "application/json");
+  xhr.setRequestHeader("cache-control", "no-cache");
+//  xhr.setRequestHeader("postman-token", "cd5ca15a-fec9-caec-525b-fc1178015d89");
+  xhr.send(data);
+}
+
 function showPopup(event){
 
   var data=event.target.dataset;
 
-  var cardno=data.cardno;
+  var identifieri=data.identifieri;
 
-  var offerno=data.offerno;
+  var identifierj=data.identifierj;
 
-  var card=document.getElementById("card"+cardno+"pop"+offerno);
+  var card=document.getElementById("off"+identifieri+identifierj);
 
   card.style.width = "100%";
 
@@ -18,11 +35,11 @@ function showConfirmOffer(event){
 
   var data=event.target.dataset;
 
-  var cardno=data.cardno;
+  var identifieri=data.identifieri;
 
-  var offerno=data.offerno;
+  var identifierj=data.identifierj;
 
-  var card=document.getElementById("card"+cardno+"pop"+offerno);
+  var card=document.getElementById("off"+identifieri+identifierj);
 
   var element=card.getElementsByClassName("confirmOffer");
 
@@ -40,20 +57,27 @@ function showAcceptmessage(event){
 
   var data=event.target.dataset;
 
-  var cardno=data.cardno;
+  var identifieri=data.identifieri;
 
-  var offerno=data.offerno;
+  var identifierj=data.identifierj;
+  
+  var bidid=data.bidid;
 
-  var card=document.getElementById("card"+cardno+"pop"+offerno);
+  var card=document.getElementById("off"+identifieri+identifierj);
 
   var elementToHide=card.getElementsByClassName("confirmOffer");
 
   elementToHide[0].classList.add("one");
 
+  var jsondata = JSON.stringify({
+    "status": "ACCEPTED",
+    "profile_type" : "Seller"
+  });
 
+  updateApi(jsondata, bidid);
 
-  /* API call */
-
+  document.getElementById("make-offer-button-text"+identifieri+identifierj).innerHTML = 'Waiting for token';
+  document.getElementById("off"+idi+idj).classList.add("one");
 
 
 
@@ -88,11 +112,11 @@ function showEnterOffer(event){
 
   var data=event.target.dataset;
 
-  var cardno=data.cardno;
+  var identifieri=data.identifieri;
 
-  var offerno=data.offerno;
+  var identifierj=data.identifierj;
 
-  var card=document.getElementById("card"+cardno+"pop"+offerno);
+  var card=document.getElementById("off"+identifieri+identifierj);
 
   var element=card.getElementsByClassName("enterOffer");
 
@@ -110,18 +134,29 @@ function sendCounterOffer(event){
 
   var data=event.target.dataset;
 
-  var cardno=data.cardno;
+  var identifieri=data.identifieri;
 
-  var offerno=data.offerno;
+  var identifierj=data.offerno;
+  
+  var bidid=data.bidid;
 
-  var card=document.getElementById("card"+cardno+"pop"+offerno);
+  var card=document.getElementById("off"+identifieri+identifierj);
 
   var elementToHide=card.getElementsByClassName("enterOffer");
 
   elementToHide[0].classList.add("one");
 
-  /*API call */
-
+  var jsondata = JSON.stringify(
+    {
+     "status":"COUNTERBID",
+     "profile_type" : "Seller",
+     "counter_bidder_amount" : priceval,
+     "counter_bidder_security_amount" : sdepval
+   }
+  );
+  updateApi(jsondata, bidid);
+  
+  
 
 
   var elementToShow=card.getElementsByClassName("messageCounter");

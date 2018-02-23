@@ -303,8 +303,8 @@ body {
   .card {
 
     padding: 1.5%;
-
-    margin: 4% 4% 4%;
+  /*  padding-bottom: 0%;*/
+    margin: 4% 4% 0%;
 
     display: flex;
 
@@ -312,19 +312,23 @@ body {
 
     justify-content: space-around;
 
-    height: 50%;
+    height: 195px;
 
     align-content: flex-start;
 
   }
 
-  
+  .ViewOffer {
+    text-align: center;
+    font-size: 12px;
+    color: #5E23DC;
+  }
 
-  .card:hover {
+  /*.card:hover {
 
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
-  }
+  }*/
 
   
 
@@ -1008,7 +1012,6 @@ letter-spacing: normal;
 
   display:flex;
   flex-flow: column nowrap;
-
   justify-content: space-around;
   
 

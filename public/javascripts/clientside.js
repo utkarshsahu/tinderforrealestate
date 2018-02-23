@@ -18,6 +18,10 @@ function doSomething() {
   }
   else if(phone==='9867029445') {
     uid = '25f7fed9-7488-4311-84f8-268a287a381b';
-    window.location.href = "http://"+window.location.href.split('/')[2]+'/sellerdashboard?uid='+uid;
+    window.location.href = "http://"+window.location.href.split('/')[2]+'/splash?uid='+uid;
+  }
+  else if(phone==='9819201271') {
+    uid = '891c7e86-f407-4ce4-9ff9-1094ba68beff';
+    window.location.href = "http://"+window.location.href.split('/')[2]+'/ownerdashboard?uid='+uid;
   }
 }
