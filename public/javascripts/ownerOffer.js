@@ -71,7 +71,7 @@ function showAcceptmessage(event){
 
   var jsondata = JSON.stringify({
     "status": "ACCEPTED",
-    "profile_type" : "Seller"
+    "profile_type" : "Buyer"
   });
 
   updateApi(jsondata, bidid);
@@ -153,9 +153,9 @@ function sendCounterOffer(event){
   var jsondata = JSON.stringify(
     {
      "status":"BID",
-     "profile_type" : "Seller",
-     "counter_bidder_amount" : priceval,
-     "counter_bidder_security_amount" : sdepval,
+     "profile_type" : "Buyer",
+     "bidder_amount" : priceval,
+     "bidder_security_amount" : sdepval,
      "brokerage": brokerageval
    }
   );
