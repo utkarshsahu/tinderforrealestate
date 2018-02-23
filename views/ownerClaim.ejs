@@ -1,0 +1,138 @@
+
+
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300" rel="stylesheet">
+      <link rel="stylesheet" href="/stylesheets/ownerClaim.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   </head>
+   <body>
+      <div class="myOffer" style="text-align: center">
+         <div class="arrow">
+            <i class="material-icons">&#xE5C4;</i>
+         </div>
+         <div class="myOffertext">Claim Owner Offers</div>
+      </div>
+      <div class="empty">
+        <% for(var i = 0; i<data.length; i++) {%>
+         <div class="card" id="card">
+            <div class="propertyInfo">
+               <div class="imgArea">
+                  <img src="<%=cbids[i].cover_image_url%>">
+               </div>
+               <div class="details">
+                  <div class="propertyName">
+                     <%=cbids[i].title%>
+                  </div>
+                  <div class="attributes" >
+                     <div class="detail__">
+                        <div class="label2">Original Price</div>
+                        <div class="value3"><%=cbids[i].price%></div>
+                     </div>
+                     <div class="detail__">
+                        <div class="label2">Original Deposit</div>
+                        <div class="value3"><%=cbids[i].security_deposit%></div>
+                     </div>
+                     <div class="detail__2">
+                        <div class="label2">Original Brokerage</div>
+                        <div class="value3"><%=cbids[i].brokerage%></div>
+                     </div>
+                  </div>
+                  <div class="attributes">
+                     <div class="detail__">
+                        <div class="label3">Offered Price</div>
+                        <div class="value2"><%=data[i].counter_bidder_amount%></div>
+                     </div>
+                     <div class="detail__">
+                        <div class="label3">Offered Deposit</div>
+                        <div class="value2"><%=data[i].counter_bidder_security_amount%></div>
+                     </div>
+                     <div class="detail__2">
+                        <div class="label3">Offered Brokerage</div>
+                        <div class="value2"><%=data[i].brokerage%></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="offerArea">
+              <%if(data[i].status==='COUNTERBID') {%>
+                <div class="button1">Waiting for Offer</div>
+              <%} else{ %>
+               <div class="button1" id="make<%=i%>" onclick="showPopup(event)" data-cardno=<%=i%>>
+                  Make Offer
+               </div>
+               <%}%>
+               <div class="button" onclick="abort(event)" data-cardno=<%=i%>>
+                  Reject
+               </div>
+               <div class="popupOverlay" id="pop<%=i%>">
+                  <div class="popup one">
+                     <div class="acceptOffer" onclick="showConfirmOffer(event)" data-cardno=<%=i%>> Accept Offer </div>
+                     <div class="counter" onclick="showEnterOffer(event)" data-cardno=<%=i%> >Counter Offer</div>
+                  </div>
+                  <div class="confirmOffer one">
+                     <div class="confirmHead">Confirm Offer</div>
+                     <div class="moneyTalk">
+                        <div class="price">
+                           <div class="rent">Rent</div>
+                           <div class="rentValue"><%=data[i].counter_bidder_amount%></div>
+                        </div>
+                        <div class="security">
+                           <div class="deposit">Securit Deposit</div>
+                           <div class="depositValue"><%=data[i].counter_bidder_security_amount%></div>
+                        </div>
+                     </div>
+                     <div class="confirmYes_Btn">
+                        <div class="yesbtnText" onclick="showAcceptmessage(event)" data-cardno=<%=i%> data-bidid=<%=data[i].id%>>Yes</div>
+                     </div>
+                  </div>
+                  <div class="enterOffer one">
+                     <div class="counterHead">Enter Counter Offer</div>
+                     <div class="offerArea2">
+                        <div class="rentEdit">
+                           <div class="label">Rent</div>
+                           <div class="edit">
+                              <div class="rupee">Rs.</div>
+                              <div class="values">
+                                 <input type="text" placeholder="<<%=data[i].counter_bidder_amount%>>" size="8" id="price<%=i%>">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="securityEdit">
+                           <div class="label">Security Deposit</div>
+                           <div class="edit">
+                              <div class="rupee">Rs.</div>
+                              <div class="values">
+                                 <input type="text" placeholder="<<%=data[i].counter_bidder_security_amount%>>" size="8" id="sdep<%=i%>">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="securityEdit">
+                           <div class="label">Brokerage</div>
+                           <div class="edit">
+                              <div class="rupee">Rs.</div>
+                              <div class="values">
+                                 <input type="text" placeholder="<<%=data[i].brokerage%>>" size="8" id="brokerage<%=i%>">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="counterYes_Btn">
+                        <div class="yesbtnText" onclick="sendCounterOffer(event)" data-cardno=<%=i%> data-bidid=<%=data[i].id%>>Send Counter Offer</div>
+                     </div>
+                  </div>
+                  <div class="messageCounter one">
+                     <div class="textContent">You have successfully sent counter offer!</div>
+                  </div>
+                  <div class="messageAccept one">
+                     <div class="textContent">Listing Claimed!<br/>Find a Tenant</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <% } %>
+      </div>
+   </body>
+   <script type="text/javascript" src="/javascripts/ownerClaim.js"></script>
+</html>
+

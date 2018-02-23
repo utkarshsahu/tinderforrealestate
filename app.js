@@ -30,7 +30,7 @@ app.get('/ownerdashboard', routes.loadOwnerDashboard);
 app.get('/sellerdashboard', routes.loadSellerDashboard);
 app.get('/welcome', routes.showWelcome);
 app.get('/splash', routes.showSplash);
-
+app.get('/ownerclaim', routes.showClaim);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

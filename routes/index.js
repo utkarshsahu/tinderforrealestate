@@ -191,4 +191,38 @@ exports.loadOwnerDashboard = function(req, res) {
   });
   });
 }
+
+exports.showClaim = function(req, res) {
+  var options = { method: 'GET',
+  url: 'http://rakesh.kumar.housing.com:3000/api/list-latest-bids',
+  qs: 
+   { profile_uuid: req.query.uid,
+     profile_type: 'Buyer' },
+  headers: 
+   { 
+     'cache-control': 'no-cache' } };
+
+  request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+  obj = JSON.parse(body);
+//  console.log(obj);
+  var counter_bidder_ids = [];
+  for(var i = 0; i<obj.length; i++) {
+    counter_bidder_ids.push(obj[i].counter_bidder_id);
+  }
+  var options2 = { method: 'GET',
+    url: 'http://rakesh.kumar.housing.com:3000/api/user-flat-details',
+    qs: { user_flat_ids: counter_bidder_ids.toString() },
+    headers: 
+    {
+      'cache-control': 'no-cache' } };
+
+  request(options2, function (error2, response2, body2) {
+  if (error2) throw new Error(error2);
+   //console.log(obj);
+   console.log(JSON.parse(body2));
+    res.render('ownerClaim', {data:obj, cbids: JSON.parse(body2)});
+  });
+  });
+}
 exports.routes = router;
