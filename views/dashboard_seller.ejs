@@ -71,16 +71,18 @@
                            Rs <%=data[keys[i]][j].bidder_security_amount%>
                         </div>
                         <% if(data[keys[i]][j].status==='COMPLETED') { %>
-                          <div class="currentOffer">Completed</div>                          
+                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>">Completed</div>                          
                         <% } else if(data[keys[i]][j].status==='BID') { %>
-                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>"onclick="makeOffer(event)" data-identifieri=<%=i%> data-identifierj=<%=j%>>Make Offer</div>
+                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>" onclick="makeOffer(event)" data-identifieri=<%=i%> data-identifierj=<%=j%>>Make Offer</div>
                         <% } else if(data[keys[i]][j].status==='ACCEPTED') {%>
-                          <div class="currentOffer" >Awaiting Token</div> 
+                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>">Awaiting Token</div> 
+                        <%} else if(data[keys[i]][j].status==='COUNTERBID'){%>
+                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>">Awaiting offer</div>
                         <%} else {%>
                           <div class="currentOffer"><%=data[keys[i]][j].status%></div>
-                        <%}%>
+                        <% } %>
                         <%if(data[keys[i]][j].status!=='ABORTED') {%>
-                        <div class="currentAbort"  onclick="abortOffer(event)" data-identifieri=<%=i%>>
+                        <div class="currentAbort"  onclick="abortOffer(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> data-bidid=<%=data[keys[i]][j].id%> id="abort<%=i%><%=j%>">
                            Reject
                         </div>
                         <% } else {%>

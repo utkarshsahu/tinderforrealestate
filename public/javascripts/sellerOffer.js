@@ -79,6 +79,7 @@ function counterOffer(event) {
 function abortOffer(event) {
   var data = event.target.dataset;
   var idi = data.identifieri;
+  var idj = data.identifierj;
   var bidid = data.bidid;
   
   var cDialog = confirm("Abort Offer!?");
@@ -90,8 +91,8 @@ function abortOffer(event) {
       }
     );
     updateApi(jsondata, bidid);
-    
-    document.getElementById("card"+idi).classList.add("one");
+    document.getElementById("make-offer-button-text"+idi+idj).innerHTML = 'ABORTED';
+    document.getElementById("abort"+idi+idj).style.visibility = "hidden";
   }
 }
 
@@ -213,6 +214,9 @@ function showPopup(event){
     );
     updateApi(jsondata, bidid);
     /*API call */
+    
+    document.getElementById('make-offer-button-text'+idi+idj).innerHTML = 'Awaiting Offer';
+    document.getElementById('make-offer-button-text'+idi+idj).removeAttribute('onclick');
 
     var elementToShow=card.getElementsByClassName("messageCounter");
 

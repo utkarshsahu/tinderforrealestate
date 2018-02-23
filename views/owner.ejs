@@ -70,7 +70,7 @@
                   </div>
                   <% if(data[keys[i]][j].status==='ACCEPTED') {%>
                     <div class="button">Listing Claimed</div>
-                  <% } else if(data[keys[i]][j].status==='COUNTERBID'){ %>
+                  <% } else if(data[keys[i]][j].status==='BID'){ %>
                     <div class="button">Awaiting Offer</div>
                   <% } else { %>
                   <div class="button" onclick="showPopup(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> id="make-offer-button-text<%=i%><%=j%>">
