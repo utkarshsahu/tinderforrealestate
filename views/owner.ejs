@@ -66,7 +66,7 @@
                      <%=data[keys[i]][j].bidder_security_amount%>
                   </div>
                   <div class="tagValue">
-                     <%=data[keys[i]][j].brokerage%>
+                     <%=data[keys[i]][j].brokerage%>%
                   </div>
                   <% if(data[keys[i]][j].status==='ACCEPTED') {%>
                     <div class="button">Listing Claimed</div>
@@ -77,7 +77,7 @@
                      Make Offer
                   </div>
                   <% } %>
-                  <div class="button">
+                  <div class="button" data-identifieri=<%=i%> data-identifierj=<%=j%>>
                      Reject
                   </div>
                   <div class="popupOverlay" id="off<%=i%><%=j%>">
@@ -90,11 +90,15 @@
                         <div class="moneyTalk">
                            <div class="price">
                               <div class="rent">Rent</div>
-                              <div class="rentValue">20000</div>
+                              <div class="rentValue"><%=data[keys[i]][j].bidder_amount%></div>
                            </div>
                            <div class="security">
-                              <div class="deposit">Securit Deposit</div>
-                              <div class="depositValue">100000</div>
+                              <div class="deposit">Security Deposit</div>
+                              <div class="depositValue"><%=data[keys[i]][j].bidder_security_amount%></div>
+                           </div>
+                           <div class="security">
+                              <div class="deposit">Brokerage</div>
+                              <div class="depositValue"><%=data[keys[i]][j].brokerage%></div>
                            </div>
                         </div>
                         <div class="confirmYes_Btn">
@@ -123,7 +127,7 @@
                               </div>
                            </div>
                            <div class="securityEdit">
-                              <div class="label">Security Deposit</div>
+                              <div class="label">Brokerage</div>
                               <div class="edit">
                                  <div class="rupee">Rs.</div>
                                  <div class="values">
