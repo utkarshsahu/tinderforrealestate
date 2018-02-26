@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 
 <html>
    <head>
@@ -41,11 +41,11 @@
                   <div class="attributes">
                      <div class="detail__">
                         <div class="label3">Offered Price</div>
-                        <div class="value2"><%=data[i].counter_bidder_amount%></div>
+                        <div class="value2"><%=data[i].counter_bidder_amount ? data[i].counter_bidder_amount : data[i].bidder_amount%></div>
                      </div>
                      <div class="detail__">
                         <div class="label3">Offered Deposit</div>
-                        <div class="value2"><%=data[i].counter_bidder_security_amount%></div>
+                        <div class="value2"><%=data[i].counter_bidder_security_amount ? data[i].counter_bidder_security_amount : data[i].bidder_security_amount%></div>
                      </div>
                      <div class="detail__2">
                         <div class="label3">Offered Brokerage</div>
