@@ -16,19 +16,21 @@ function updateApi(data, bidid) {
 }
 
 function makeOffer(event) {
-  console.log("CAme in function");
+  console.log("Came in function");
   var data = event.target.dataset;
   var id = data.identifier;
   var bidid = data.bidid;
   var this_element = document.getElementById("make-offer-button-text"+id);
   if(this_element.innerHTML === 'Make Offer') {
-    console.log("CAme in IF");
+    console.log("Came in IF");
     var card= document.getElementById("off"+id);
+    var popup=card.getElementsByClassName("popup");
+    popup[0].classList.remove("one");
     card.style.width = "100%";
   }
   else {
     //Pay the token, call api
-    console.log("CAme in Else");
+    console.log("Came in Else");
     var jsondata = JSON.stringify({
       "status" : "COMPLETED",
       "profile_type" : "Buyer",
@@ -40,7 +42,7 @@ function makeOffer(event) {
       updateApi(jsondata, bidid);
       // Include a check for an expired offer!!!
       alert("Amount Paid. Congrats deal closed.\n")
-      document.getElementById("butgroup"+id).innerHTML = 'Deal Closed!';
+      location.reload();
     }
   }
   

@@ -177,7 +177,9 @@ function utilNext(id, pageNo, len) {
   var currBar = "bar"+(id+1);
   var nextBar = "bar"+(id+2);
   if(id==len-1) {
-    window.location = window.location.href+'&page='+pageNo;
+    var url = new URL(window.location.href);
+    url.searchParams.set('page', pageNo);
+    window.location = url.toString();
   }
   else {
     document.getElementById(curr).classList.add('one');

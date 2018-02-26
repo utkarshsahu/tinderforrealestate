@@ -150,7 +150,7 @@ function showPopup(event){
 
     updateApi(jsondata, bidid);
     
-    document.getElementById("make-offer-button-text"+idi+idj).innerHTML = 'Waiting for token';
+    document.getElementById("make-offer-button-text"+idi+idj).innerHTML = 'Awaiting Token';
     document.getElementById("off"+idi+idj).classList.add("one");
 
     var elementToShow=card.getElementsByClassName("messageAccept");

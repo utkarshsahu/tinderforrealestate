@@ -1,270 +1,274 @@
 body {
 
-  font-family: 'Roboto', sans-serif;
+     font-family: 'Roboto', sans-serif;
 
- font-size: 17px;
+     font-size: 17px;
 
- font-weight: normal;
+     font-weight: normal;
 
-   
+     font-style: normal;
 
- font-style: normal;
+     font-stretch: normal;
 
- font-stretch: normal;
+     line-height: normal;
 
- line-height: normal;
+     letter-spacing: normal;
 
- letter-spacing: normal;
-
-  padding-left: 1%;
+     padding-left: 1%;
 
 }
 
-.round {
+body .header {
 
-  font-size: 17px;
-
-    position: relative;
-
-    text-align: center;
-
-    
-
-  }
-
-  
-
-  .round label {
-
-    color: grey;
-
-    background-color: #fff;
-
-    border: 1px solid #ccc;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    height: 28px;
-
-    left: 0;
-
-    position: absolute;
-
-    top: 0%;
-
-    width: 80px;
-
-  }
-
-  .round input[type="checkbox"] {
-
-    visibility: hidden;
-
-    display: none;
-
-    
-
-  }
-
-  
-
-  .round input[type="checkbox"]:checked + label {
+    padding-left: 0%;
 
     background-color: #5e23dc;
 
-    border-color: #5e23dc;
+    height: 8%;
 
-    color:#fff;
+    display: flex;
 
-    
+    flex-flow: row nowrap;
 
-  }
+    margin-bottom: 5%;
 
-  
+}
 
-  .round input[type="checkbox"]:checked + label:after {
+.my-dashboard-text {
 
-    opacity: 0;
+    display: flex;
 
-  
+    color: white;
 
-  }
+    margin-left:30%;
 
- 
+    font-family: 'Roboto', sans-serif;
 
-  .bedroomTypes {
+    font-size: 17px;
 
-      display: flex;
+    font-weight: normal;
 
-      flex-flow: row wrap;
+    font-style: normal;
 
-      justify-content: flex-start;
+    font-stretch: normal;
 
-    height: 70%;
+    line-height: normal;
 
-      
+    letter-spacing: normal;
 
-      
+    justify-content: center;
 
-  }
+    align-items: center;
 
+}
 
-
- .bhk1{
-
-  width: 26%;
-
-   display: flex;
-
-   flex-flow: row nowrap;
-
-/*    justify-content: center; */
-
-   align-content: center;
-
- }
-
- .bhk2{
-
-  width: 26%;
-
- }
-
- .bhk3{
-
-  width: 26%;
-
- }
-
- .bhk3plus{
-
-  width: 26%;
-
- }
-
-  .topContainer{
+.topContainer{
 
     display: flex;
 
     flex-flow: column nowrap;
-
-    justify-content: space-around;
-
-    height:640px
-
-  }
-
-  .locationContainer{
-
-    position: relative;
-
-    display: flex;
-
-    flex-flow: column nowrap;
-
-    justify-content: space-around;
-
-    height:10%;
-
-    padding-bottom: 2%;
-
-  }
-
-  .bedroomContainer{
-
-    display: flex;
-
-    flex-flow: column nowrap;
-
-    justify-content: space-around;
-
-    height:15%;
-
-  }
-
- .bedroomTitle{
-
-  height: 30%;
-
-  justify-content: flex-start;
-
- 
-
- }
-
- 
-
-  .budgetContainer{
-
-    display: flex;
-
-    flex-flow: column nowrap;
-
-    justify-content: space-around;
-
-    height:8%;
-
-  }
-
-  .budgetTitle{
-
-  height: 40%;
 
     justify-content: flex-start;
 
-  }
-
-  .budgetTextFields{
-
-    padding-top: 10%;
-
-      display: flex;
-
-            flex-flow: row wrap;
-
-            justify-content: flex-start;
-
-          height: 100%;
-
-  }
-
- .minField{
-
-  width: 30%;
-
-   
-
-   padding-right: 15%;
-
-   
-
- }
-
- .maxField{
-
-  width: 30%;
-
- }
-
-#minValue {
-
-  height: 30px;
-
- 
-
-  
+    height:640px
 
 }
 
-#maxValue {
+.locationContainer{
 
-  height: 30px;
+    display: flex;
+
+    flex-flow: column nowrap;
+
+    justify-content: flex-start;
+
+    height:20%;
+
+    
 
 }
 
-  .furnishingContainer{
+.locationTitle {
+
+    top: 10%;
+
+    margin-top: 0%;
+
+    font-size: 14px;
+
+    display: flex;
+
+    flex-flow: flex-start;
+
+    height: 30%;
+
+    margin-bottom: 3%;
+
+}
+
+.locationContainer #locationSearchBox {
+
+   /* height: 10%;
+
+    */
+
+    height: 30px;
+
+    padding-bottom:40%;
+
+    margin-bottom: 5%;
+
+}
+
+#locationSearchBox {
+
+    display: flex;
+
+    flex-flow: column nowrap;
+
+    height: 70%;
+
+}
+
+#selectedLocation span{
+
+    margin-top:5%;
+
+    width: 40%;
+
+    height:100%;
+
+}
+
+#selectedLocation {
+
+    display: flex;
+
+    flex-flow:flex-start;
+
+    
+
+}
+
+#city1 {
+
+    display: flex;
+
+    background-color: #5e23dc;
+
+    color: white;
+
+    height: 30px;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    width: 100%;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+#city2 {
+
+   /* display: none;
+
+    */
+
+    display: flex;
+
+    background-color: #5e23dc;
+
+    color: white;
+
+    height: 30px;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    width: 100%;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+ .round {
+
+     font-size: 17px;
+
+     position: relative;
+
+     display: flex;
+
+     justify-content: center;
+
+     align-items: center;
+
+     text-align: center;
+
+}
+
+ .round label {
+
+     display: flex;
+
+     justify-content: center;
+
+     align-items: center;
+
+     color: grey;
+
+     background-color: #fff;
+
+     border: 1px solid #ccc;
+
+     border-radius: 10px;
+
+     cursor: pointer;
+
+     height:28px ;
+
+     left: 0;
+
+     position: absolute;
+
+     top: 0%;
+
+     width: 80px;
+
+}
+
+ .round input[type="checkbox"] {
+
+     visibility: hidden;
+
+     display: none;
+
+}
+
+ .round input[type="checkbox"]:checked + label {
+
+     background-color: #5e23dc;
+
+     border-color: #5e23dc;
+
+     color:#fff;
+
+}
+
+ .round input[type="checkbox"]:checked + label:after {
+
+     opacity: 0;
+
+}
+
+.furnishingContainer{
 
     display: flex;
 
@@ -274,45 +278,85 @@ body {
 
     height:11%;
 
-  }
+    
 
-  .furnishingTypes{
+    
+
+}
+
+.furnishingTypes{
 
     padding-top: 10%;
 
-          display: flex;
+    display: flex;
 
-            flex-flow: row wrap;
+    flex-flow: row nowrap;
 
-            justify-content: flex-start;
+    height: 70%;
 
-          height: 70%;
+}
 
-  }
+.fully{
 
- .fully{
+    width:35%;
 
-  width:30%;
+}
 
-   padding-right: 3%;
+.semi{
 
- }
+    width:35%;
 
- .semi{
+}
 
-  width:30%;
+.un{
 
-   padding-right: 3%;
+    width:30%;
 
- }
+}
 
- .un{
+ .furnishingTypes .round label{
 
-  width:30%;
+     width:90%;
 
- }
+     font-family: 'Roboto', sans-serif;
 
-  .availableInContainer{
+     font-size: 12px;
+
+     font-weight: normal;
+
+     font-style: normal;
+
+     font-stretch: normal;
+
+     line-height: normal;
+
+     letter-spacing: normal;
+
+     color: grey;
+
+     background-color: #fff;
+
+     border: 1px solid #ccc;
+
+     border-radius: 10px;
+
+     cursor: pointer;
+
+}
+
+ .furnishingTypes .round{
+
+     display: flex;
+
+     justify-content: center;
+
+     align-items: center;
+
+     width: 100%;
+
+}
+
+.bedroomContainer{
 
     display: flex;
 
@@ -320,394 +364,380 @@ body {
 
     justify-content: space-around;
 
-    height:20%;
+    height:15%;
 
-  }
-
- .availableInTitle{
-
-  height: 15%;
-
-  justify-content: flex-start;
-
- }
-
-  .availableInTypes{
-
-       display: flex;
-
-            flex-flow: row wrap;
-
-            justify-content: space-around;
-
-          height: 70%;
-
-
-
-  }
-
- .week{
-
-  width:30%;
-
- }
-
- .weekplus{
-
-  width: 30%;
-
- }
-
- .month{
-
-  width:  30%;
-
- }
-
- .monthPlus{
-
-  width:  30%;
-
- }
-
-  .footerContainer{
-
-    display: flex;
-
-    flex-flow: row wrap;
-
-    justify-content: space-around;
-
-  }
-
- 
-
-/*   #locationSearchBox {
-
-    display: none;
-
- } */
-
- /* #selectedLocation {
-
-    display: block;
-
- } */
-
- /*
-
-  .bedroomTypes div {
-
-      width: 10%;
-
-      height: 15px;
-
-      padding: 0px 3px 0px;
-
-  } */
-
-
-
-.footerContainer {
-
-  font-family: 'Roboto', sans-serif;
-
- font-size: 17px;
-
- font-weight: normal;
-
-   
-
- font-style: normal;
-
- font-stretch: normal;
-
- line-height: normal;
-
- letter-spacing: normal;
-
-   justify-content: center;
-
-   align-items: center;
-
-  position: relative;
-
-  height: 5%;
-
-  background-color: #1dd38f;
+     margin-bottom: 5%;
 
 }
 
-.matchButton {
+.bedroomTitle{
 
-  position: absolute;
+    height: 30%;
 
-  cursor: pointer;
-
-  top: 20%;
-
-  color: white;
+    justify-content: flex-start;
 
 }
 
-.furnishingTypes  .round label {
+ .bedroomTypes {
 
-    color: grey;
+     display: flex;
 
-    background-color: #fff;
+     flex-flow: row wrap;
 
-    border: 1px solid #ccc;
+     justify-content: flex-start;
 
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    height: 40px;
-
-    left: 0;
-
-    position: absolute;
-
-    top: 0%;
-
-    width: 100px;
-
-  }
-
-
-
-.furnishingTypes .un .round label {
-
-    color: grey;
-
-    padding-top: 10px;
-
-    background-color: #fff;
-
-    border: 1px solid #ccc;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    height: 30px;
-
-    left: 0;
-
-    position: absolute;
-
-    top: 0%;
-
-    width: 100px;
-
-  }
-
-
-
-.availableInContainer  .round label {
-
-    color: grey;
-
-    background-color: #fff;
-
-    border: 1px solid #ccc;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    height: 40px;
-
-    left: 0;
-
-    position: absolute;
-
-    top: 0%;
-
-    width: 100px;
-
-  }
-
-.availableInContainer .monthPlus .round label {
-
-    color: grey;
-
-    background-color: #fff;
-
-  
-
-    position: relative;
-
-    border: 1px solid #ccc;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    height: 40px;
-
-    left: -111%;
-
-    position: absolute;
-
-    top: 0%;
-
-    width: 100px;
-
-  }
-
-
-
-#city1 {
-
-  background-color: #5e23dc;
-
-  color: white;
-
-  height: 30px;
-
-  border-radius: 13px;
-
-  cursor: pointer;
-
-  width: 30%;
+     height: 70%;
 
 }
-
-#city2 {
-
-    /* display: none; */
-
-  background-color: #5e23dc;
-
-  color: white;
-
-  height: 30px;
-
-  border-radius: 13px;
-
-  cursor: pointer;
-
-  width: 30%;
-
-}
-
-.locationContainer #locationSearchBox {
-
-/*   height: 10%; */
-
-  height: 30px;
-
-  
-
-  padding-bottom:40%;
-
-  margin-bottom: 5%;
-
-}
-
-body .header {
-
-  padding-left: 0%;
-
-   background-color:  #5e23dc;
-
-   height: 8%;
-
-   display: flex;
-
-   flex-flow: row nowrap;
-
-  margin-bottom:  5%;
-
-}
-
-.my-dashboard-text {
-
-   display: flex;
-
-   color: white;
-
-   margin-left:30%;
-
-   font-family: 'Roboto', sans-serif;
-
- font-size: 17px;
-
- font-weight: normal;
-
-   
-
- font-style: normal;
-
- font-stretch: normal;
-
- line-height: normal;
-
- letter-spacing: normal;
-
-   justify-content: center;
-
-   align-items: center;
-
-}
-
-.locationTitle {
-
-  top: 10%;
-
-  margin-top: 0%;
-
-  font-size: 14px;
-
-  padding-bottom: 30%;
-
-  margin-bottom: 5%;
-
-}
-
-
 
 .bedroomTitle, .budgetTitle, .furnishingTitle, .availableInTitle {
 
-  
-
-  font-size: 14px;
-
-  
+    font-size: 14px;
 
 }
 
+ .bhk1{
 
+     width: 30%;
 
- .bedroomContainer .bedroomTypes .bhk1 {
+     height: 50%;
 
-/*   position: relative; */
+     display: flex;
+
+     flex-flow: row nowrap;
+
+    /*justify-content: center;
+
+    */
+
+     align-content: center;
+
+     margin-right: 4%;
 
 }
 
+ .bhk2{
 
+     width: 30%;
 
-/* .b1 {
+     height: 50%;
 
-  padding-top: 0px;
+     display: flex;
 
-  
+     flex-flow: row nowrap;
+
+    /* justify-content: center;
+
+     */
+
+     align-content: center;
+
+     margin-right: 4%;
 
 }
 
- */
+ .bhk3{
 
-.bedroomContainer .bedroomTypes .bhk1 .round .b1{
+     width: 30%;
 
- 
+     height: 50%;
 
-  position: absolute;
+     display: flex;
 
-  
+     flex-flow: row nowrap;
+
+    /* justify-content: center;
+
+     */
+
+     align-content: center;
+
+}
+
+ .bhk3plus{
+
+     width: 30%;
+
+     height: 50%;
+
+     display: flex;
+
+     flex-flow: row nowrap;
+
+    /* justify-content: center;
+
+     */
+
+     align-content: center;
+
+}
+
+.bedroomTypes .round{
+
+    display: flex;
+
+     justify-content: center;
+
+     align-items: center;
+
+     width: 100%;
+
+}
+
+.bedroomTypes .round label{
+
+    width:100%;
+
+     font-family: 'Roboto', sans-serif;
+
+     font-size: 12px;
+
+     font-weight: normal;
+
+     font-style: normal;
+
+     font-stretch: normal;
+
+     line-height: normal;
+
+     letter-spacing: normal;
+
+     color: grey;
+
+     background-color: #fff;
+
+     border: 1px solid #ccc;
+
+     border-radius: 10px;
+
+     cursor: pointer;
+
+}
+
+ .budgetContainer{
+
+     display: flex;
+
+     flex-flow: column nowrap;
+
+     justify-content: space-around;
+
+     height:10%;
+
+     margin-bottom: 5%;
+
+}
+
+}
+
+ .budgetTitle{
+
+     height: 30%;
+
+     justify-content: flex-start;
+
+}
+
+ .budgetTextFields{
+
+     padding-top: 10%;
+
+     display: flex;
+
+     flex-flow: row wrap;
+
+     justify-content:flex-start;
+
+     align-items: center;
+
+     height: 70%;
+
+}
+
+ .minField{
+
+     width: 30%;
+
+     padding-right: 15%;
+
+}
+
+ .maxField{
+
+     width: 30%;
+
+}
+
+ #minValue {
+
+     height: 30px;
+
+}
+
+ #maxValue {
+
+     height: 30px;
+
+}
+
+ .availableInContainer{
+
+     display: flex;
+
+     flex-flow: column nowrap;
+
+     justify-content: space-around;
+
+     height:20%;
+
+     margin-top: 5%;
+
+     margin-bottom: 5%;
+
+}
+
+ .availableInTitle{
+
+     height: 30%;
+
+     display: flex;
+
+     align-items: center;
+
+}
+
+ .availableInTypes{
+
+     display: flex;
+
+     flex-flow: row wrap;
+
+     justify-content: flex-start;
+
+     height: 70%;
+
+}
+
+ .week{
+
+     width:30%;
+
+     margin-right:4%;
+
+}
+
+ .weekPlus{
+
+     width: 30%;
+
+     margin-right:4%;
+
+}
+
+ .month{
 
 
 
-} 
+     width: 30%;
 
- 
+}
+
+ .monthPlus{
+
+     width: 30%;
+
+     margin-right:4%;
+
+}
+
+.availableInContainer .round {
+
+    display: flex;
+
+     justify-content: center;
+
+     align-items: center;
+
+     width: 100%;
+
+}
+
+.availableInContainer .round label {
+
+    width:100%;
+
+     font-family: 'Roboto', sans-serif;
+
+     font-size: 12px;
+
+     font-weight: normal;
+
+     font-style: normal;
+
+     font-stretch: normal;
+
+     line-height: normal;
+
+     letter-spacing: normal;
+
+     color: grey;
+
+     background-color: #fff;
+
+     border: 1px solid #ccc;
+
+     border-radius: 10px;
+
+     cursor: pointer;
+
+}
+
+ .footerContainer{
+
+     display: flex;
+
+     flex-flow: row wrap;
+
+     justify-content: space-around;
+
+}
+
+ .footerContainer {
+
+     font-family: 'Roboto', sans-serif;
+
+     font-size: 17px;
+
+     font-weight: normal;
+
+     font-style: normal;
+
+     font-stretch: normal;
+
+     line-height: normal;
+
+     letter-spacing: normal;
+
+     justify-content: center;
+
+     align-items: center;
+
+     position: relative;
+
+     height: 5%;
+
+     background-color: #1dd38f;
+
+}
+
+ .matchButton {
+
+     position: absolute;
+
+     cursor: pointer;
+
+     top: 20%;
+
+     color: white;
+
+}
