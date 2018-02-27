@@ -48,10 +48,10 @@
             <div class="offerArea">
                <%for(var j = 0; j<data[keys[i]].length; j++) {%>
                <div class="offertags">
-                  <div class="tag_label">
+                  <div class="tag_label2">
                      Offered <br />Price
                   </div>
-                  <div class="tag_label">
+                  <div class="tag_label2">
                      Offered <br />Deposits
                   </div>
                   <div class="tag_label">
@@ -59,21 +59,21 @@
                   </div>
                </div>
                <div class="offer" id="offer<%=i%><%=j%>">
-                  <div class="tagValue">
+                  <div class="tagValue2">
                      <%=data[keys[i]][j].bidder_amount%>
                   </div>
-                  <div class="tagValue">
+                  <div class="tagValue2">
                      <%=data[keys[i]][j].bidder_security_amount%>
                   </div>
                   <div class="tagValue">
                      <%=data[keys[i]][j].brokerage%>%
                   </div>
                   <% if(data[keys[i]][j].status==='ACCEPTED') {%>
-                    <div class="button">Listing Claimed</div>
+                    <div class="button1">Listing Claimed</div>
                   <% } else if(data[keys[i]][j].status==='BID'){ %>
-                    <div class="button">Awaiting Offer</div>
+                    <div class="button1">Awaiting Offer</div>
                   <% } else { %>
-                  <div class="button" onclick="showPopup(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> id="make-offer-button-text<%=i%><%=j%>">
+                  <div class="button1" onclick="showPopup(event)" data-identifieri=<%=i%> data-identifierj=<%=j%> id="make-offer-button-text<%=i%><%=j%>">
                      Make Offer
                   </div>
                   <% } %>

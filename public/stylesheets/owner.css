@@ -521,9 +521,9 @@
 
 
 
-  width: 90%;
+  width: 95%;
 
-  height: 70%;
+  height: 60%;
 
   border: solid 2px #1dd38f;
 
@@ -537,7 +537,7 @@
 
    font-family: 'Roboto', sans-serif;
 
-  font-size: 18px;
+  font-size: 16px;
 
   font-weight: normal;
 
@@ -562,14 +562,14 @@ overflow-y:scroll;
 }
 
 .card{
-
+  
   left:0px;
 
  display: flex;
 
   flex-flow: column nowrap;
 
-  justify-content: center;
+  justify-content: flex-start;
 
   align-items: center;
 
@@ -625,7 +625,7 @@ overflow-y:scroll;
 
 .propertyName{
 
-  height: 50%;
+  height: 40%;
 
   font-family: 'Roboto', sans-serif;
 
@@ -779,21 +779,21 @@ overflow-y:scroll;
 
   width: 100%;
 
-  height: 50%;
+  height: 25%;
 
   display: flex;
 
   justify-content: flex-start;
 
   flex-flow:column nowrap;
-
+  margin-top:2%;
 }
 
 .offertags{
 
   display: flex;
 
-  height: 25%;
+  height: 40%;
 
   flex-flow: row nowrap;
 
@@ -815,7 +815,7 @@ overflow-y:scroll;
 
 
 
-  font-size: 12px;
+  font-size: 10px;
 
 
 
@@ -840,34 +840,77 @@ overflow-y:scroll;
 
 
   text-align: center;
-
-
+justify-content: flex-start;
+display: flex;
 
   color: #5e23dc;
 
 }
+.tag_label2{
+   width: 17%;
 
+    opacity: 0.87;
+
+
+
+  font-family: Roboto;
+
+
+
+  font-size: 10px;
+
+
+
+  font-weight: normal;
+
+
+
+  font-style: normal;
+
+
+
+  font-stretch: normal;
+
+
+
+  line-height: normal;
+
+
+
+  letter-spacing: normal;
+
+
+
+  text-align: center;
+justify-content: flex-start;
+display: flex;
+
+  color: #5e23dc;
+
+
+}
 .offer{
 
-  margin-top: 3%;
+  
 
-  height: 25%;
+  height: 50%;
 
   display: flex;
 
   flex-flow: row nowrap;
 
-  justify-content: center;
+  justify-content: flex-start;
 
   align-items: center;
 
-  background: #f2f2f2;
+ 
 
 }
 
+
 .tagValue{
 
-  width: 20%;
+  width: 15%;
 
   display: flex;
 
@@ -914,20 +957,18 @@ overflow-y:scroll;
   color: black;
 
 }
+.tagValue2{
+  width: 17%;
 
-.button{
+  display: flex;
 
-  width: 19%;
-
-  margin-left:1%;
-
-  display:flex;
-
-  justify-content: center;
+  justify-content: flex-start;
 
   align-items: center;
 
-  height: 70%;
+
+
+
 
   font-family: Roboto;
 
@@ -959,11 +1000,113 @@ overflow-y:scroll;
 
   text-align: center;
 
+
+
+  color: black;
+
+}
+
+.button{
+
+  width: 24%;
+  background: white;
+  margin-left:1%;
+
+  display:flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 70%;
+
+  font-family: Roboto;
+
+
+
+  font-size: 11px;
+
+
+
+  font-weight: 500;
+
+
+
+  font-style: normal;
+
+
+
+  font-stretch: normal;
+
+
+
+  line-height: normal;
+
+
+
+  letter-spacing: normal;
+
+
+
+  text-align: center;
+
   border: solid 1px #1dd38f;
 
 
 
   color: #1dd38f;
+
+}
+.button1{
+
+  width: 24%;
+
+  margin-left:1%;
+
+  display:flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 70%;
+
+  font-family: Roboto;
+
+
+
+  font-size: 11px;
+
+
+
+  font-weight: 500;
+
+
+
+  font-style: normal;
+
+
+
+  font-stretch: normal;
+
+
+
+  line-height: normal;
+
+
+
+  letter-spacing: normal;
+
+
+
+  text-align: center;
+
+  border: solid 1px #1dd38f;
+
+
+
+  color:white;
+  background: #1dd38f;
 
 }
 
@@ -977,7 +1120,7 @@ overflow-y:scroll;
 
   width: 100%;
 
-  height: 15%;
+  height: 5%;
 
   color: #5e23dc;
 
@@ -985,7 +1128,7 @@ overflow-y:scroll;
 
 
 
-  font-size: 17px;
+  font-size: 11px;
 
 
 

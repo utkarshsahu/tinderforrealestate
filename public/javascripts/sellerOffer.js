@@ -91,8 +91,9 @@ function abortOffer(event) {
       }
     );
     updateApi(jsondata, bidid);
-    document.getElementById("make-offer-button-text"+idi+idj).innerHTML = 'ABORTED';
-    document.getElementById("abort"+idi+idj).style.visibility = "hidden";
+//    document.getElementById("make-offer-button-text"+idi+idj).innerHTML = 'ABORTED';
+    document.getElementById("list"+idi+idj).style.display = "none";
+    location.reload();
   }
 }
 

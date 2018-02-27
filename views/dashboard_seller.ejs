@@ -36,7 +36,7 @@
                            </span>
                         </div>
                         <div class="lbl">
-                           <font color="#999" size=2px><%=cbids[i].price%> </font>
+                           <font color="#999" size=2px>₹<%=cbids[i].price%> </font>
                         </div>
                      </div>
                      <div class="prop-listing-details-col">
@@ -46,7 +46,7 @@
                            </span>
                         </div>
                         <div class="lbl">
-                           <font color="#999" size=2px> <%=cbids[i].security_deposit%></font>
+                           <font color="#999" size=2px>₹<%=cbids[i].security_deposit%></font>
                         </div>
                      </div>
                   </div>
@@ -58,7 +58,7 @@
                </div>
                <div class="offerListContainer">
                   <% for(var j = 0; j<data[keys[i]].length; j++) { %>
-                  <div class="offerList">
+                  <div class="offerList" id="list<%=i%><%=j%>">
                     <% if(j%2==0) { %>
                      <div class="currentList" style="background-color:#fff">
                     <% }else {%>
@@ -71,7 +71,7 @@
                            Rs <%=data[keys[i]][j].bidder_security_amount%>
                         </div>
                         <% if(data[keys[i]][j].status==='COMPLETED') { %>
-                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>">Completed</div>                          
+                          <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>">Deal Closed</div>                          
                         <% } else if(data[keys[i]][j].status==='BID') { %>
                           <div class="currentOffer" id="make-offer-button-text<%=i%><%=j%>" onclick="makeOffer(event)" data-identifieri=<%=i%> data-identifierj=<%=j%>>Make Offer</div>
                         <% } else if(data[keys[i]][j].status==='ACCEPTED') {%>
