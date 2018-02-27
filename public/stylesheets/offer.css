@@ -556,7 +556,7 @@
 
   height: 600px;
 
-
+background: #f2f2f2;
 
 
 
@@ -574,9 +574,10 @@
 
   align-items: center;
 
-  margin-bottom:1.33%;
+  margin-bottom:5%;
 
   height: 30%;
+  background: white;
 
 }
 
